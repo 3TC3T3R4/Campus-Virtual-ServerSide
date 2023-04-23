@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CampusVirtual.Domain\CampusVirtual.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
