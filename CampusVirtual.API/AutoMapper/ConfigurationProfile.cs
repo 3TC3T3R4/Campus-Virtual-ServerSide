@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using CampusVirtual.Domain.Commands;
+using CampusVirtual.Domain.Entities;
 
 namespace CampusVirtual.API.AutoMapper
 {
