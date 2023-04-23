@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CampusVirtual.Domain.Commands.LearningPath;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.UseCases.Gateway;
 using Microsoft.AspNetCore.Mvc;
@@ -26,12 +27,12 @@ namespace CampusVirtual.API.Controllers
         }
 
 
-        //[HttpPost]
-        //[Route("CreateCustomer")]
-        //public async Task<InsertNewCustomer> CreateCustomerAsync(InsertNewCustomer newCustomer)
-        //{
-        //    return await _customerUseCase.CreateCustomerAsync(_mapper.Map<Customer>(newCustomer));
-        //}
+        [HttpPost]
+        [Route("CreateLearningPath")]
+        public async Task<InsertNewLearningPath> CreateLearningPathAsync(InsertNewLearningPath newLearningPath)
+        {
+            return await _learningPathUseCase.CreateLearningPathAsync(_mapper.Map<LearningPath>(newLearningPath));
+        }
 
         //[HttpGet]
         //[Route("GetCustomerWithAccountAndCard")]
