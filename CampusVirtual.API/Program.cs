@@ -2,6 +2,10 @@ using AutoMapper.Data;
 using CampusVirtual.API.AutoMapper;
 using CampusVirtual.Infrastructure.SQLAdapter;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
+using CampusVirtual.Infrastructure.SQLAdapter.Repositories;
+using CampusVirtual.UseCases.Gateway;
+using CampusVirtual.UseCases.Gateway.Repositories;
+using CampusVirtual.UseCases.UseCases;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +17,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(config => config.AddDataReaderMapping(), typeof(ConfigurationProfile));
 
-
+builder.Services.AddScoped<ICourseUseCase, CourseUseCase>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 builder.Services.AddTransient<IDbConnectionBuilder>(e =>
 {
