@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using CampusVirtual.Domain.Entities;
+using CampusVirtual.UseCases.Gateway;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
