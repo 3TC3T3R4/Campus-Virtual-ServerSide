@@ -15,10 +15,15 @@ namespace CampusVirtual.Domain.Entities
         public decimal Duration { get;  private set; }
         public int StatePath { get;  private set; }
 
-
-
-
-
-
+        public LearningPath()
+        {
+        }
+    
+    
+    
+    
+    
+    
+    
     }
 }

@@ -12,6 +12,12 @@ namespace CampusVirtual.UseCases.UseCases
     public class LearningPathUseCase : ILearningPathUseCase
     {
         private readonly ILearningPathRepository _learningPathRepository;
+
+        public LearningPathUseCase(ILearningPathRepository learningPathRepository)
+        {
+            _learningPathRepository = learningPathRepository;
+        }
+
         public async Task<List<LearningPath>> GetLearningPathsAsync()
         {
             return await _learningPathRepository.GetLearningPathsAsync();

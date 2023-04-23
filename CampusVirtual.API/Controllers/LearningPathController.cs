@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.UseCases.Gateway;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CampusVirtual.API.Controllers
@@ -21,7 +20,7 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpGet]
-        public async Task<List<LearningPath>> GetCustomersAsync()
+        public async Task<List<LearningPath>> GetLearningPathsAsync()
         {
             return await _learningPathUseCase.GetLearningPathsAsync();
         }

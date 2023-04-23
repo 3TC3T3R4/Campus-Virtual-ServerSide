@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CampusVirtual.Domain.Commands;
+using CampusVirtual.Domain.Commands.LearningPath;
 using CampusVirtual.Domain.Entities;
 
 namespace CampusVirtual.API.AutoMapper
