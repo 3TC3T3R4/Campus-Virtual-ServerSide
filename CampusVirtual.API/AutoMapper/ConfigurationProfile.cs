@@ -12,6 +12,8 @@ namespace CampusVirtual.API.AutoMapper
 
             #region Learning paths
 
+            CreateMap<InsertNewLearningPath, LearningPath>().ReverseMap();
+
             #endregion
 
             #region Courses
