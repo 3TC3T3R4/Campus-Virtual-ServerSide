@@ -56,6 +56,7 @@ CREATE TABLE Registrations (
     uidUser VARCHAR(40) NOT NULL,
     pathID UNIQUEIDENTIFIER NOT NULL,
     createdAt DATETIME NOT NULL,
+	finalRating DECIMAL,
     stateRegistration INT NOT NULL,
     CONSTRAINT FK_Registrations_LearningPaths FOREIGN KEY (pathID) 
 	REFERENCES LearningPaths (pathID) ON DELETE CASCADE
@@ -83,11 +84,11 @@ VALUES
     ('D483BF47-0C91-42F4-BE40-FF7D29ACA765', 'D483BF47-0C91-42F4-BE40-FF7D29ACA764', 'Content 3', 'Description for Content 3', 'Quiz URL for Content 3', 3, 4, 0);
 
 -- Insertar datos de prueba en la tabla Registrations
-INSERT INTO [dbo].[Registrations] (uidUser, pathID, createdAt, stateRegistration) 
+INSERT INTO [dbo].[Registrations] (uidUser, pathID, createdAt,finalRating, stateRegistration) 
 VALUES 
-    ('user1', '3F5AC9AA-1B09-4C39-9584-5AEAD893D302', '2023-04-21 09:00:00', 1),
-    ('user2', 'CE79D5C8-BEE5-41E3-8BF4-C79DED2E0F59', '2023-04-22 10:00:00', 1),
-    ('user3', 'D483BF47-0C91-42F4-BE40-FF7D29ACA763', '2023-04-23 11:00:00', 0);
+    ('user1', '3F5AC9AA-1B09-4C39-9584-5AEAD893D302', '2023-04-21 09:00:00',NUll, 1),
+    ('user2', 'CE79D5C8-BEE5-41E3-8BF4-C79DED2E0F59', '2023-04-22 10:00:00',NULL, 1),
+    ('user3', 'D483BF47-0C91-42F4-BE40-FF7D29ACA763', '2023-04-23 11:00:00',NULL, 0);
 
 -- Insertar datos de prueba en la tabla Deliveries
 INSERT INTO [dbo].[Deliveries] (contentID, uidUser, deliveryAt, rating, comment, ratedAt, stateDelivery) 
