@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CampusVirtual.UseCases.Gateway.Repositories
 {
-    public interfaces ILearningPath
+    public interface ILearningPath
     {
 
         Task<List<LearningPath>> GetLearningPathsAsync();
