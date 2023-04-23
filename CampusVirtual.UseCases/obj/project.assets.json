@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "CampusVirtual.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CampusVirtual.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CampusVirtual.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CampusVirtual.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CampusVirtual.Domain/CampusVirtual.Domain.csproj",
+      "msbuildProject": "../CampusVirtual.Domain/CampusVirtual.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "CampusVirtual.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\juans\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj": {
+              "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
