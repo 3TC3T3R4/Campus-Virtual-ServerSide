@@ -56,7 +56,7 @@ CREATE TABLE Registrations (
     uidUser VARCHAR(40) NOT NULL,
     pathID UNIQUEIDENTIFIER NOT NULL,
     createdAt DATETIME NOT NULL,
-	finalRating DECIMAL,
+    finalRating DECIMAL,
     stateRegistration INT NOT NULL,
     CONSTRAINT FK_Registrations_LearningPaths FOREIGN KEY (pathID) 
 	REFERENCES LearningPaths (pathID) ON DELETE CASCADE
