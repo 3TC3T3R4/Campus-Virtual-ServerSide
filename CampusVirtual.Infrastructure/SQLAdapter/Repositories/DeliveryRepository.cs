@@ -44,7 +44,14 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
         public async Task<string> DeleteDelivery(int deliveryId)
         {
-            throw new NotImplementedException();
+            var connection = await _connectionBuilder.CreateConnectionAsync();
+            var deteleDelivery = new
+            {
+                stateDelivery = 2,
+            };
+            string sqlQuery = $"UPDATE {tableName} SET stateDelivery = @stateDelivery WHERE deliveryID = {deliveryId}";
+            await connection.ExecuteAsync(sqlQuery, deteleDelivery);
+            return "Delivery deleted";
         }
 
         public async Task<Delivery> GetDeliveryById(int deliveryId)
