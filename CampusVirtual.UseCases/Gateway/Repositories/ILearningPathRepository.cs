@@ -13,7 +13,8 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
 
         Task<List<LearningPath>> GetLearningPathsAsync();
         Task<InsertNewLearningPath> CreateLearningPathAsync(LearningPath learningPath);
-
+      
+        Task<List<LearningPath>> GetLearningPathsByCoachAsync(string coachID);
 
 
     }

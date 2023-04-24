@@ -19,7 +19,8 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         private readonly IMapper _mapper;
 
         private readonly string _tableNameLearningPaths = "LearningPaths";
-        
+        private readonly string _tableNameRegistrations = "Registrations";
+
         public LearningPathRepository(IDbConnectionBuilder dbConnectionBuilder, IMapper mapper)
         {
             _dbConnectionBuilder = dbConnectionBuilder;
@@ -66,8 +67,26 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         }
 
 
+        public async Task<List<LearningPath>> GetLearningPathsByCoachAsync(string ID)
+        {
+
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths}  WHERE  coachID " +
+                $" =  '{ID}'"; 
+            var result = await connection.QueryAsync<LearningPath>(sqlQuery);
+            if
+            (
+                result.IsNullOrEmpty()
+            )
+            {
+                throw new Exception("No LearningPaths found");
+            }
+            connection.Close();
+            return result.ToList();
 
 
 
+
+        }
     }
 }

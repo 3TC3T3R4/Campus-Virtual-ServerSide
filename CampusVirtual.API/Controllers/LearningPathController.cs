@@ -34,6 +34,18 @@ namespace CampusVirtual.API.Controllers
             return await _learningPathUseCase.CreateLearningPathAsync(_mapper.Map<LearningPath>(newLearningPath));
         }
 
+        [HttpGet("GetByCoach")]
+        public async Task<List<LearningPath>> Get_LearningPaths_Coach(string id)
+        {
+            return await _learningPathUseCase.GetLearningPathsByCoachAsync(id);
+        }
+
+
+
+
+
+
+
         //[HttpGet]
         //[Route("GetCustomerWithAccountAndCard")]
         //public async Task<CustomerWithAccountAndCard> GetCustomerWithAccountAndCard(int id)
