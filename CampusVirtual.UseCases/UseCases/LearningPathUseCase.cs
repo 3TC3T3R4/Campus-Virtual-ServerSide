@@ -49,5 +49,10 @@ namespace CampusVirtual.UseCases.UseCases
         {
             return await _learningPathRepository.UpdateLearningPathByIdAsync(idPath,path);
         }
+
+        public async Task<string>UpdateLearningPathDurationAsync(string idPath, int numberCourses)
+        {
+            return await _learningPathRepository.UpdateLearningPathDurationAsync(idPath, numberCourses);
+        }
     }
 }

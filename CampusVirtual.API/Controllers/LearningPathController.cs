@@ -59,11 +59,11 @@ namespace CampusVirtual.API.Controllers
         }
 
 
-        //[HttpPut]
-        //public async Task<string> Update_LearningPathDuration(string id)
-        //{
-        //    return await _learningPathUseCase.UpdateLearningPathByIdAsync(id);
-        //}
+        [HttpPut("UpdateDuration")]
+        public async Task<string> UpdateLearningPathDuration(string id, int numberCourses)
+        {
+            return await _learningPathUseCase.UpdateLearningPathDurationAsync(id, numberCourses);
+        }
 
 
 

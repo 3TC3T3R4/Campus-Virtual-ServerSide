@@ -149,5 +149,19 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
 
         }
+
+        public async Task<string> UpdateLearningPathDurationAsync(string idPath, int numberCourses)
+        {
+
+          
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET  duration = {numberCourses} WHERE  pathID = '{idPath}' ";
+            var result = await connection.ExecuteAsync(sqlQuery);
+            connection.Close();
+            return "DurationUpdated";
+
+
+
+        }
     }
 }

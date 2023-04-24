@@ -23,5 +23,7 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
         Task<LearningPath> GetLearningPathsByIdAsync(string idPath);
 
 
+        Task<string> UpdateLearningPathDurationAsync(string idPath, int numberCourses);
+
     }
 }
