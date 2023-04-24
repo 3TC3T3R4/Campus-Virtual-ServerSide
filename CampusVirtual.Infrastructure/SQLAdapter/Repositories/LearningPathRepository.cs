@@ -79,6 +79,9 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         public async Task<List<LearningPath>> GetLearningPathsByCoachAsync(string ID)
         {
 
+
+
+
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths}  WHERE  coachID " +
                 $" =  '{ID}'"; 
