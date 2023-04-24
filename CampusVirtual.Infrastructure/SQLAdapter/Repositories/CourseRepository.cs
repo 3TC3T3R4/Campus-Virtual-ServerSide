@@ -32,16 +32,15 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"SELECT * FROM {_tableNameCourses}";
-            var result = await connection.QueryAsync<Courses>(sqlQuery);           
+            var result = await connection.QueryAsync<Courses>(sqlQuery);          
+
             connection.Close();
             return result.ToList();
         }
 
         public async Task<NewCourse> CreateCourseAsync(Courses courses)
         {
-            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-
-            Courses.SetDetailsCoursesEntity(courses);
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();           
 
             var courseToCreate = new Courses
             {
@@ -51,6 +50,8 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                 Duration = courses.Duration,
                 StateCourse = courses.StateCourse
             };
+
+            Courses.Validate(courseToCreate);
 
             string sqlQuery = $"INSERT INTO {_tableNameCourses} (PathID, Title, Description, Duration, StateCourse)" +
                 $"VALUES (@PathID, @Title, @Description, @Duration, @StateCourse)";
@@ -131,6 +132,27 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             connection.Close();
 
             return _mapper.Map<Courses>(courseToUpdate);
+        }
+
+        public async Task<Courses> AssingToPathAsync(AssingToPath assingToPath)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            var courseToAssing = await GetCourseByIdAsync(assingToPath.CourseID);
+
+            courseToAssing.PathID = assingToPath.PathID;
+
+            if (courseToAssing.PathID == null)
+            {
+                throw new Exception("PathID cannot be null.");
+            }
+
+            string sqlQuery = $"UPDATE {_tableNameCourses} SET PathID = @PathID WHERE CourseID = @CourseID";
+
+            var result = await connection.ExecuteScalarAsync(sqlQuery, courseToAssing);
+
+            connection.Close();
+
+            return _mapper.Map<Courses>(courseToAssing);
         }
        
     }

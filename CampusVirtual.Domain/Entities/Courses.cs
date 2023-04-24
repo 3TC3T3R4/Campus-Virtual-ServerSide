@@ -8,59 +8,40 @@ namespace CampusVirtual.Domain.Entities
 {
     public class Courses
     {
-        public Guid CourseID { get;  set; }
-        public Guid PathID { get;  set; }
-        public string Title { get;  set; }
-        public string Description { get;  set; }
-        public Decimal Duration { get;  set; }
-        public int StateCourse { get;  set; }
+        public Guid CourseID { get; set; }
+        public Guid PathID { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public Decimal Duration { get; set; }
+        public int StateCourse { get; set; }
 
         public Courses()
-        {           
-        }
-
-        public static Courses SetDetailsCoursesEntity(Courses courses)
         {
-            courses.PathID = courses.PathID;
-            courses.Title = courses.Title;
-            courses.Description = courses.Description;
-            courses.Duration = courses.Duration;
-            courses.StateCourse = courses.StateCourse;
-
-            return courses;
         }
 
-        public void SetCourseID(Guid courseID)
+        public static void Validate(Courses courses)
         {
-            CourseID = courseID;
+            if (courses.PathID == null)
+            {
+                throw new Exception("PathID is required");
+            }
+            if (courses.Title == null)
+            {
+                throw new Exception("Title is required");
+            }
+            if (courses.Description == null)
+            {
+                throw new Exception("Description is required");
+            }
+            if (courses.Duration == null)
+            {
+                throw new Exception("Duration is required");
+            }
+            if (courses.StateCourse == null)
+            {
+                throw new Exception("StateCourse is required");
+            }
+
         }
-
-        public void SetPathID(Guid pathID)
-        {
-            PathID = pathID;
-        }
-
-        public void SetTitle(string title)
-        {
-            Title = title;
-        }
-
-        public void SetDescription(string description)
-        {
-            Description = description;
-        }
-
-        public void SetDuration(Decimal duration)
-        {
-            Duration = duration;
-        }
-
-        public void SetStateCourse(int stateCourse)
-        {
-            StateCourse = stateCourse;
-        }
-       
-
-
     }
 }

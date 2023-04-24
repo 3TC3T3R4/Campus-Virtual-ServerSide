@@ -59,7 +59,16 @@ namespace CampusVirtual.API.Controllers
         public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)
         {
             return await _courseUseCase.UpdateDurationAsync(updateDuration);
+        }        
+
+        [HttpPatch]
+        [Route("AssingToPath")]
+
+        public async Task<Courses> AssingToPathAsync(AssingToPath assingToPath)
+        {
+            return await _courseUseCase.AssingToPathAsync(assingToPath);
         }
+
 
     }
 }

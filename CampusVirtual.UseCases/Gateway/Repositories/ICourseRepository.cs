@@ -16,5 +16,7 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
         Task<Courses> GetCourseByIdAsync(Guid id);
         Task<Courses> DeleteCourseAsync(string id);
         Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration);
+
+        Task<Courses> AssingToPathAsync(AssingToPath assingToPath);
     }
 }
