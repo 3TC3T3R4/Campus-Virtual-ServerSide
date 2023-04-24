@@ -71,16 +71,22 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
         public async Task<Courses> DeleteCourseAsync(string id)
         {
-           
+
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
             string sqlQuery = $"UPDATE {_tableNameCourses} SET StateCourse = 0 WHERE CourseID = @CourseID";
 
-            var result = await connection.ExecuteScalarAsync(sqlQuery, new { CourseID = id });
+            var result = await connection.ExecuteAsync(sqlQuery, new { CourseID = id });
+
             connection.Close();
 
-            return _mapper.Map<Courses>(result);          
+            if (result == 0)
+            {                
+                return null;
+            }
+
+            return await GetCourseByIdAsync(Guid.Parse(id));
            
-            
         }
 
         public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)

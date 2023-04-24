@@ -43,7 +43,6 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpPut]
-
         public async Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse)
         {
             return await _courseUseCase.UpdateCourseAsync(updateCourse);
