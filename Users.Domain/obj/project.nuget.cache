@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "q8U8+x/qRB+nL+7eEDTVKKJNooiQYKmYOMg1sejIVnyEtPTYvFe/9SBpkK/rhK/OQ/l3X9hOXlI29gQ1MC51fA==",
   "success": true,
   "projectFilePath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+=======
+  "dgSpecHash": "r161sr+rsNFMYVGsx9iOqRPYFjsKPVKNCtpMasq3LLnWpYBZVykH8gaxWzoOw/9fbfdsoliZzLq1I5Xx/Rn6wg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
   "expectedPackageFiles": [],
   "logs": []
 }

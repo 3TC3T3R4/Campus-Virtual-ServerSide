@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
         "packagesPath": "C:\\Users\\juans\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.API\\obj\\",
+=======
+    "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
+        "projectName": "Users.API",
+        "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
+        "packagesPath": "C:\\Users\\57318\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.API\\obj\\",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\juans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\57318\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,6 +51,7 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
                 "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
               },
@@ -41,6 +60,16 @@
               },
               "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
                 "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
+=======
+              "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
+                "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
+              },
+              "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj"
+              },
+              "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
+                "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
               }
             }
           }
@@ -91,10 +120,11 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -103,12 +133,26 @@
         "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
         "packagesPath": "C:\\Users\\juans\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\",
+=======
+    "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+        "projectName": "Users.Domain",
+        "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+        "packagesPath": "C:\\Users\\57318\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\juans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\57318\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -151,10 +195,11 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -163,12 +208,26 @@
         "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\juans\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
+=======
+    "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
+        "projectName": "Users.Infrastructure",
+        "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\57318\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\juans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\57318\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -184,11 +243,19 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
                 "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
               },
               "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
                 "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
+=======
+              "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
+                "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
+              },
+              "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
+                "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
               }
             }
           }
@@ -232,10 +299,11 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -244,12 +312,26 @@
         "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
         "packagesPath": "C:\\Users\\juans\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\",
+=======
+    "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
+        "projectName": "Users.UseCases",
+        "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
+        "packagesPath": "C:\\Users\\57318\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\juans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\57318\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -265,8 +347,13 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
                 "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
+=======
+              "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
+                "projectPath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
               }
             }
           }
@@ -296,7 +383,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
