@@ -17,27 +17,27 @@ namespace CampusVirtual.UseCases.UseCases
         public CourseUseCase(ICourseRepository courseRepository)
         {
             _courseRepository = courseRepository;
-        }
-
-        public async Task<List<Courses>> GetCoursesAsync()
-        {
-            return await _courseRepository.GetCoursesAsync();
-        }
+        }        
 
         public async Task<NewCourse> CreateCourseAsync(Courses courses)
         {
             return await _courseRepository.CreateCourseAsync(courses);
         }
 
-        public async Task<UpdateCourse> UpdateCourseAsync(Courses courses)
+        public async Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse)
         {
-            return await _courseRepository.UpdateCourseAsync(courses);
-        }     
+            return await _courseRepository.UpdateCourseAsync(updateCourse);
+        }           
 
         public async Task<Courses> GetCourseByIdAsync(Guid id)
         {
             return await _courseRepository.GetCourseByIdAsync(id);
         }     
+
+        public async Task<Courses> GetCoursesByPathIdAsync(Guid id)
+        {
+            return await _courseRepository.GetCoursesByPathIdAsync(id);
+        }
         
         public async Task<Courses> DeleteCourseAsync(string id)
         {

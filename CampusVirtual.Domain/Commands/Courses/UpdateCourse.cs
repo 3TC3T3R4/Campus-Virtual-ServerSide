@@ -8,10 +8,9 @@ namespace CampusVirtual.Domain.Commands.Courses
 {
     public class UpdateCourse
     {
-        public Guid PathID { get; set; }
+        public Guid CourseID { get; set; }       
         public string Title { get; set; }
-        public string Description { get; set; }
-        public Decimal Duration { get; set; }
+        public string Description { get; set; }        
         public int StateCourse { get; set; }
 
     }

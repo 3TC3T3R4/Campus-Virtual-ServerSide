@@ -58,29 +58,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var result = await connection.ExecuteScalarAsync(sqlQuery, courseToCreate);
             connection.Close();
             return _mapper.Map<NewCourse>(courseToCreate);
-        }
-
-        public async Task<UpdateCourse> UpdateCourseAsync(Courses courses)
-        {
-            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-
-            Courses.SetDetailsCoursesEntity(courses);
-
-            var courseToUpdate = new Courses
-            {
-                PathID = courses.PathID,
-                Title = courses.Title,
-                Description = courses.Description,
-                Duration = courses.Duration,
-                StateCourse = courses.StateCourse
-            };
-
-            string sqlQuery = $"UPDATE {_tableNameCourses} SET PathID = @PathID, Title = @Title, Description = @Description, Duration = @Duration, StateCourse = @StateCourse WHERE CourseID = @CourseID";
-
-            var result = await connection.ExecuteScalarAsync(sqlQuery, courseToUpdate);
-            connection.Close();
-            return _mapper.Map<UpdateCourse>(courseToUpdate);
-        }
+        }       
 
         public async Task<Courses> GetCourseByIdAsync(Guid id)
         {
@@ -120,6 +98,33 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
             return _mapper.Map<Courses>(durationToUpdate);
 
+        }
+
+        public async Task<Courses> GetCoursesByPathIdAsync(Guid id)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"SELECT * FROM {_tableNameCourses} WHERE PathID = @PathID";
+            var result = await connection.QueryFirstOrDefaultAsync<Courses>(sqlQuery, new { PathID = id });
+            connection.Close();
+            return result;
+        }
+
+        public async Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            var courseToUpdate = await GetCourseByIdAsync(updateCourse.CourseID);
+
+            courseToUpdate.Title = updateCourse.Title;
+            courseToUpdate.Description = updateCourse.Description;            
+            courseToUpdate.StateCourse = updateCourse.StateCourse;
+
+            string sqlQuery = $"UPDATE {_tableNameCourses} SET Title = @Title, Description = @Description, StateCourse = @StateCourse WHERE CourseID = @CourseID";
+
+            var result = await connection.ExecuteScalarAsync(sqlQuery, courseToUpdate);
+
+            connection.Close();
+
+            return _mapper.Map<Courses>(courseToUpdate);
         }
        
     }
