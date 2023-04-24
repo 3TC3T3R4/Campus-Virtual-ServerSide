@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using Ardalis.GuardClauses;
+using AutoMapper;
+using CampusVirtual.Domain.Commands.Courses;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
@@ -34,5 +36,28 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             return result.ToList();
         }
 
+        public async Task<NewCourse> CreateCourseAsync(Courses courses)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+            Courses.SetDetailsCoursesEntity(courses);
+
+            var courseToCreate = new Courses
+            {
+                PathID = courses.PathID,
+                Title = courses.Title,
+                Description = courses.Description,
+                Duration = courses.Duration,
+                StateCourse = courses.StateCourse
+            };
+
+            string sqlQuery = $"INSERT INTO {_tableNameCourses} (PathID, Title, Description, Duration, StateCourse)" +
+                $"VALUES (@PathID, @Title, @Description, @Duration, @StateCourse)";
+
+            var result = await connection.ExecuteScalarAsync(sqlQuery, courseToCreate);
+            connection.Close();
+            return _mapper.Map<NewCourse>(courseToCreate);
+        }
+       
     }
 }

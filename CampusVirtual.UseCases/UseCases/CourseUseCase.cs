@@ -1,4 +1,5 @@
-﻿using CampusVirtual.Domain.Entities;
+﻿using CampusVirtual.Domain.Commands.Courses;
+using CampusVirtual.Domain.Entities;
 using CampusVirtual.UseCases.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using System;
@@ -22,7 +23,20 @@ namespace CampusVirtual.UseCases.UseCases
         {
             return await _courseRepository.GetCoursesAsync();
         }
-       
+
+        public async Task<NewCourse> CreateProjectAsync(Courses courses)
+        {
+            return await _courseRepository.CreateCourseAsync(courses);
+        }
+
+        
+
+        //public async Task<Courses> GetCourseByIdAsync(Guid id)
+        //{
+        //    return await _courseRepository.GetCourseByIdAsync(id);
+        //}
+
+      
 
     }
 }

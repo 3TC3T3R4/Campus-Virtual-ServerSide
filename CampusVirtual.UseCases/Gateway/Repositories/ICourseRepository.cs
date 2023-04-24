@@ -1,4 +1,5 @@
-﻿using CampusVirtual.Domain.Entities;
+﻿using CampusVirtual.Domain.Commands.Courses;
+using CampusVirtual.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,9 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
     public interface ICourseRepository
     {
         Task<List<Courses>> GetCoursesAsync();
+
+        Task<NewCourse> CreateCourseAsync(Courses courses);
+
+        //Task<Courses> GetCourseByIdAsync(Guid id);
     }
 }
