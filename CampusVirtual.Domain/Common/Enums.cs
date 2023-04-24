@@ -2,9 +2,10 @@
 {
     public class Enums
     {
-        public enum x
+        public enum StateRegistration 
         {
-
+            Active = 1,
+            Deleted = 2,
         }
     }
 }

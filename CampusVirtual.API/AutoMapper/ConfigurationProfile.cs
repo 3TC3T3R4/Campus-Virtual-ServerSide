@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using CampusVirtual.Domain.Commands.Registration;
+using CampusVirtual.Domain.Entities;
 
 namespace CampusVirtual.API.AutoMapper
 {
@@ -7,7 +9,7 @@ namespace CampusVirtual.API.AutoMapper
         public ConfigurationProfile()
         {
             #region Registrations
-
+            CreateMap<NewRegistrationCommand, Registration>().ReverseMap();
             #endregion
 
             #region Learning paths
