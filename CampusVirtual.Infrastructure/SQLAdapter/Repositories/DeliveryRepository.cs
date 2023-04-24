@@ -39,6 +39,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             string sqlQuery =
                 $"INSERT INTO {tableName} (contentID, uidUser, deliveryAt, rating, comment, ratedAt, stateDelivery) VALUES (@contentID, @uidUser, @deliveryAt, @rating, @comment, @ratedAt, @stateDelivery)";
             await connection.ExecuteAsync(sqlQuery, newDelivery);
+            connection.Close();
             return "Delivery created";
         }
 
@@ -51,12 +52,17 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             };
             string sqlQuery = $"UPDATE {tableName} SET stateDelivery = @stateDelivery WHERE deliveryID = {deliveryId}";
             await connection.ExecuteAsync(sqlQuery, deteleDelivery);
+            connection.Close();
             return "Delivery deleted";
         }
 
         public async Task<Delivery> GetDeliveryById(int deliveryId)
         {
-            throw new NotImplementedException();
+            var connection = await _connectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"SELECT * FROM {tableName} WHERE deliveryID = {deliveryId}";
+            var delivery = await connection.QueryFirstOrDefaultAsync<Delivery>(sqlQuery);
+            connection.Close();
+            return delivery;
         }
 
         public async Task<Delivery> GetDeliveriesByUidUser(string uidUser)
