@@ -28,17 +28,31 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpPost]
-        public async Task<NewCourse> CreateProjectAsync([FromBody] NewCourse newCourse)
+        public async Task<NewCourse> CreateCourseAsync([FromBody] NewCourse newCourse)
         {
-            return await _courseUseCase.CreateProjectAsync(_mapper.Map<Courses>(newCourse));
+            return await _courseUseCase.CreateCourseAsync(_mapper.Map<Courses>(newCourse));
         }
-        //[HttpGet("{id}")]
-        //public async Task<Courses> GetCourseByIdAsync(Guid id)
-        //{
-        //    return await _courseUseCase.GetCourseByIdAsync(id);
-        //}   
 
+        [HttpGet]
+        [Route("GetCourseById")]
 
+        public async Task<Courses> GetCourseByIdAsync([FromQuery] Guid id)
+        {
+            return await _courseUseCase.GetCourseByIdAsync(id);
+        }
+
+        [HttpPut]
+
+        public async Task<UpdateCourse> UpdateCourseAsync([FromBody] UpdateCourse updateCourse)
+        {
+            return await _courseUseCase.UpdateCourseAsync(_mapper.Map<Courses>(updateCourse));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<Courses> DeleteCourseAsync(string id)
+        {
+            return await _courseUseCase.DeleteCourseAsync(id);
+        }
 
 
     }

@@ -10,9 +10,11 @@ namespace CampusVirtual.UseCases.Gateway
 {
     public interface ICourseUseCase
     {
-        Task<NewCourse> CreateProjectAsync(Courses courses);
 
-        //Task<Courses> GetCourseByIdAsync(Guid id);
         Task<List<Courses>> GetCoursesAsync();
+        Task<NewCourse> CreateCourseAsync(Courses courses);      
+        Task<UpdateCourse> UpdateCourseAsync(Courses courses);
+        Task<Courses> GetCourseByIdAsync(Guid id);
+        Task<Courses> DeleteCourseAsync(string id);
     }
 }

@@ -24,19 +24,26 @@ namespace CampusVirtual.UseCases.UseCases
             return await _courseRepository.GetCoursesAsync();
         }
 
-        public async Task<NewCourse> CreateProjectAsync(Courses courses)
+        public async Task<NewCourse> CreateCourseAsync(Courses courses)
         {
             return await _courseRepository.CreateCourseAsync(courses);
         }
 
+        public async Task<UpdateCourse> UpdateCourseAsync(Courses courses)
+        {
+            return await _courseRepository.UpdateCourseAsync(courses);
+        }     
+
+        public async Task<Courses> GetCourseByIdAsync(Guid id)
+        {
+            return await _courseRepository.GetCourseByIdAsync(id);
+        }     
         
-
-        //public async Task<Courses> GetCourseByIdAsync(Guid id)
-        //{
-        //    return await _courseRepository.GetCourseByIdAsync(id);
-        //}
-
-      
+        public async Task<Courses> DeleteCourseAsync(string id)
+        {
+            return await _courseRepository.DeleteCourseAsync(id);
+        }
+              
 
     }
 }
