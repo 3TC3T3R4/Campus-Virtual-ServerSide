@@ -13,7 +13,7 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
         Task<string> CreateDelivery(CreateDelivery createDelivery);
         Task<string> DeleteDelivery(int deliveryId);
         Task<Delivery> GetDeliveryById(int deliveryId);
-        Task<Delivery> GetDeliveriesByUidUser(string uidUser);
+        Task<List<Delivery>> GetDeliveriesByUidUser(string uidUser);
         Task<string> QualifyDelivery(QualifyDelivery qualifyDelivery);
     }
 }

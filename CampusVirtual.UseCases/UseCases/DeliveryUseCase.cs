@@ -34,7 +34,7 @@ namespace CampusVirtual.UseCases.UseCases
             return await _deliveryRepository.GetDeliveryById(deliveryId);
         }
 
-        public async Task<Delivery> GetDeliveriesByUidUser(string uidUser)
+        public async Task<List<Delivery>> GetDeliveriesByUidUser(string uidUser)
         {
             return await _deliveryRepository.GetDeliveriesByUidUser(uidUser);
         }

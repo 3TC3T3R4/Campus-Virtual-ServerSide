@@ -43,7 +43,7 @@ namespace CampusVirtual.API.Controllers
         //GetDeliveriesByUidUser
         [HttpGet("{uid}")]
 
-        public async Task<Delivery> GetDeliveriesByUidUser(string uidUser)
+        public async Task<List<Delivery>> GetDeliveriesByUidUser(string uidUser)
         {
             return await _deliveryUseCase.GetDeliveriesByUidUser(uidUser);
         }

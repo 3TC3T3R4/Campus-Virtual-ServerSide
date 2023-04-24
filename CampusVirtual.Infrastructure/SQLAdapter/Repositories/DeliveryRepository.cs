@@ -65,14 +65,29 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             return delivery;
         }
 
-        public async Task<Delivery> GetDeliveriesByUidUser(string uidUser)
+        public async Task<List<Delivery>> GetDeliveriesByUidUser(string uidUser)
         {
-            throw new NotImplementedException();
+            var connection = await _connectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"SELECT * FROM {tableName} WHERE uidUser = {uidUser}";
+            var delivery = await connection.QueryFirstOrDefaultAsync<List<Delivery>>(sqlQuery);
+            connection.Close();
+            return delivery.ToList();
         }
 
         public async Task<string> QualifyDelivery(QualifyDelivery qualifyDelivery)
         {
-            throw new NotImplementedException();
+            var connection = await _connectionBuilder.CreateConnectionAsync();
+            var newDelivery = new
+            {
+                rating = qualifyDelivery.rating,
+                comment = qualifyDelivery.comment,
+                ratedAt = DateTime.Now,
+            };
+            string sqlQuery =
+                $"UPDATE {tableName} SET rating = @rating, comment = @comment, ratedAt = @ratedAt WHERE deliveryID = {qualifyDelivery.deliveryID}";
+            await connection.ExecuteAsync(sqlQuery, newDelivery);
+            connection.Close();
+            return "Delivery qualified";
         }
     }
 }

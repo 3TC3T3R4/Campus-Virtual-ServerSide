@@ -8,8 +8,8 @@ namespace CampusVirtual.Domain.Commands.Delivery
 {
     public class QualifyDelivery
     {
-        int deliveryID { get; set; }
-        decimal rating { get; set; }
-        string comment { get; set; }
+        public int deliveryID { get; set; }
+        public decimal rating { get; set; }
+        public string comment { get; set; }
     }
 }
