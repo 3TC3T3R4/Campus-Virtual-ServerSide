@@ -15,5 +15,10 @@ namespace CampusVirtual.UseCases.Gateway
 
         Task<List<LearningPath>> GetLearningPathsByCoachAsync(string coachID);
 
+        Task<InsertNewLearningPath> UpdateLearningPathByIdAsync(string idPath, InsertNewLearningPath path);
+
+
+        Task<string> DeleteLearningPathByIdAsync(string idPath);
+
     }
 }

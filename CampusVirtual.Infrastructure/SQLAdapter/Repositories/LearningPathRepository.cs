@@ -88,5 +88,32 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
 
         }
+
+        public async Task<InsertNewLearningPath> UpdateLearningPathByIdAsync(string idPath, InsertNewLearningPath path)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET coachID = @coachID,title = @title,description = @description,duration = @duration,statePath = @statePath WHERE pathID = {idPath}";
+            var rows = await connection.ExecuteAsync(sqlQuery, path);
+            return path;
+
+
+        }
+
+        public async Task<string> DeleteLearningPathByIdAsync(string idPath)
+        {
+
+
+            var param = new { delete = 0 };
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET  statePath = @delete WHERE  id_content = {idPath}";
+            var result = await connection.ExecuteAsync(sqlQuery, param);
+            connection.Close();
+            return "ConentDelted";
+
+
+        }
+    
+    
+    
     }
 }
