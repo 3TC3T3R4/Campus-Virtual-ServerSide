@@ -10,7 +10,7 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
 {
     public interface ICourseRepository
     {
-        Task<Courses> GetCoursesByPathIdAsync(Guid id);
+        Task<List<Courses>> GetCoursesByPathIdAsync(Guid id);
         Task<NewCourse> CreateCourseAsync(Courses courses);
         Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse);
         Task<Courses> GetCourseByIdAsync(Guid id);

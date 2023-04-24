@@ -34,7 +34,7 @@ namespace CampusVirtual.UseCases.UseCases
             return await _courseRepository.GetCourseByIdAsync(id);
         }     
 
-        public async Task<Courses> GetCoursesByPathIdAsync(Guid id)
+        public async Task<List<Courses>> GetCoursesByPathIdAsync(Guid id)
         {
             return await _courseRepository.GetCoursesByPathIdAsync(id);
         }

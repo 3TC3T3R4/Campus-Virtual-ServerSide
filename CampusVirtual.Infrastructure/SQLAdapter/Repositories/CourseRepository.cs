@@ -27,20 +27,16 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             _dbConnectionBuilder = dbConnectionBuilder;
             _mapper = mapper;
         }
+              
 
-        public async Task<List<Courses>> GetCoursesAsync()
+        public async Task<NewCourse> CreateCourseAsync(Courses courses)///
         {
-            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"SELECT * FROM {_tableNameCourses}";
-            var result = await connection.QueryAsync<Courses>(sqlQuery);          
-
-            connection.Close();
-            return result.ToList();
-        }
-
-        public async Task<NewCourse> CreateCourseAsync(Courses courses)
-        {
-            var connection = await _dbConnectionBuilder.CreateConnectionAsync();           
+            Guard.Against.NullOrEmpty(courses.PathID.ToString(), nameof(courses.PathID));
+            Guard.Against.NullOrEmpty(courses.Description, nameof(courses.Description));
+            Guard.Against.NullOrEmpty(courses.Title, nameof(courses.Title));
+            Guard.Against.NullOrEmpty(courses.Duration.ToString(), nameof(courses.Duration));
+            Guard.Against.NullOrEmpty(courses.StateCourse.ToString(), nameof(courses.StateCourse));            
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();          
 
             var courseToCreate = new Courses
             {
@@ -64,10 +60,17 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         public async Task<Courses> GetCourseByIdAsync(Guid id)
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            if (connection == null)
+            {
+                throw new Exception("No se pudo establecer la conexión a la base de datos.");
+            }
+
             string sqlQuery = $"SELECT * FROM {_tableNameCourses} WHERE CourseID = @CourseID";
-            var result = await connection.QueryFirstOrDefaultAsync<Courses>(sqlQuery, new { CourseID = id });
+            var result = await connection.QueryAsync<Courses>(sqlQuery, new { CourseID = id });
+
             connection.Close();
-            return result;
+
+            return result.FirstOrDefault();
         }
 
         public async Task<Courses> DeleteCourseAsync(string id)
@@ -84,17 +87,23 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             if (result == 0)
             {                
                 return null;
-            }
+            }          
 
-            return await GetCourseByIdAsync(Guid.Parse(id));
+            return _mapper.Map<Courses>(result);
            
         }
 
-        public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)
+        public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)////
         {
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            var durationToUpdate = await GetCourseByIdAsync(updateDuration.PathID);
+            var durationToUpdate = await GetCourseByIdAsync(updateDuration.CourseID);
+
+            if (updateDuration.Duration == null)
+            {
+                throw new Exception("Duration cannot be null.");
+            }
+
             durationToUpdate.Duration += updateDuration.Duration;
 
             string sqlQuery = $"UPDATE {_tableNameCourses} SET Duration = @Duration WHERE CourseID = @CourseID";
@@ -107,22 +116,45 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
         }
 
-        public async Task<Courses> GetCoursesByPathIdAsync(Guid id)
+        public async Task<List<Courses>> GetCoursesByPathIdAsync(Guid id)
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"SELECT * FROM {_tableNameCourses} WHERE PathID = @PathID";
-            var result = await connection.QueryFirstOrDefaultAsync<Courses>(sqlQuery, new { PathID = id });
-            connection.Close();
-            return result;
-        }
+            string sqlQuery = $"SELECT * FROM {_tableNameCourses} WHERE PathID = @PathID AND StateCourse = 2";
+            var result = await connection.QueryAsync<Courses>(sqlQuery, new { PathID = id });
 
-        public async Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse)
+            if (result == null)
+            {
+                throw new Exception("result cannot be null.");
+            }
+            
+            connection.Close();
+            return result.ToList();
+            
+        }
+            
+
+        public async Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse)//
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             var courseToUpdate = await GetCourseByIdAsync(updateCourse.CourseID);
 
+            if (string.IsNullOrEmpty(updateCourse.Title))
+            {
+                throw new Exception("Title cannot be null or empty.");
+            }
+
+            if (string.IsNullOrEmpty(updateCourse.Description))
+            {
+                throw new Exception("Description cannot be null or empty.");
+            }
+
+            if (updateCourse.StateCourse == null)
+            {
+                throw new Exception("StateCourse cannot be null.");
+            }
+
             courseToUpdate.Title = updateCourse.Title;
-            courseToUpdate.Description = updateCourse.Description;            
+            courseToUpdate.Description = updateCourse.Description;
             courseToUpdate.StateCourse = updateCourse.StateCourse;
 
             string sqlQuery = $"UPDATE {_tableNameCourses} SET Title = @Title, Description = @Description, StateCourse = @StateCourse WHERE CourseID = @CourseID";
