@@ -46,13 +46,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                 contentID = createDelivery.contentID,
                 uidUser = createDelivery.uidUser,
                 deliveryAt = DateTime.Now,
-                rating = 0,
-                comment = "",
-                ratedAt = DateTime.Now,
                 stateDelivery = 1,
             };
 
-            string sqlQuery = $"INSERT INTO {tableName} (contentID, uidUser, deliveryAt, rating, comment, ratedAt, stateDelivery) VALUES (@contentID, @uidUser, @deliveryAt, @rating, @comment, @ratedAt, @stateDelivery)";
+            string sqlQuery = $"INSERT INTO {tableName} (contentID, uidUser, deliveryAt, stateDelivery) VALUES (@contentID, @uidUser, @deliveryAt, @stateDelivery)";
             await connection.ExecuteAsync(sqlQuery, newDelivery);
 
             connection.Close();
@@ -141,6 +138,28 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             connection.Close();
             return "Delivery qualified";
         }
+
+        public async Task<List<Delivery>> GetDeliveriesByPathId(string pathID)
+        {
+            Guard.Against.NullOrEmpty(pathID, nameof(pathID), "Path ID is null or empty");
+            var connection = await _connectionBuilder.CreateConnectionAsync();
+            var sqlQuery = @"SELECT d.*
+                        FROM Deliveries d
+                        INNER JOIN Contents ct ON d.contentID = ct.contentID
+                        INNER JOIN Courses c ON ct.courseID = c.courseID 
+                        INNER JOIN LearningPaths lp ON c.pathID = lp.pathID 
+                        WHERE lp.pathID =  @PathId
+                        AND d.rating IS NULL
+                        AND d.comment IS NULL
+                        AND d.ratedAt IS NULL
+                        AND d.stateDelivery = 1";
+            var parameters = new { PathId = pathID };
+            var command = new CommandDefinition(sqlQuery, parameters);
+            var deliveries = await connection.QueryAsync<Delivery>(command);
+            connection.Close();
+            return deliveries.ToList();
+        }
+
 
     }
 }
