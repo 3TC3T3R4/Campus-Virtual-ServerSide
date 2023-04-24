@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using CampusVirtual.Domain.Commands.Courses;
+using CampusVirtual.Domain.Entities;
 using CampusVirtual.Domain.Commands.Content;
 using CampusVirtual.Domain.Entities;
 
@@ -16,6 +18,7 @@ namespace CampusVirtual.API.AutoMapper
 
 			#endregion
 
+            CreateMap<NewCourse, Courses>().ReverseMap();
 			#region Courses
 
 			#endregion
