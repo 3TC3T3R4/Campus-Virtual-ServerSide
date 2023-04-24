@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Users.Domain.Commands;
+using Users.Domain.Entities;
+using Users.Infrastructure.MongoAdapter.MongoEntities;
 
 namespace Users.API.AutoMapper
 {
@@ -6,8 +9,8 @@ namespace Users.API.AutoMapper
     {
         public ConfigurationProfile()
         {
-            #region Users
-            #endregion
+            CreateMap<UserMongo, User>().ReverseMap();
+            CreateMap<CreateUser, UserMongo>().ReverseMap();
         }
     }
 }

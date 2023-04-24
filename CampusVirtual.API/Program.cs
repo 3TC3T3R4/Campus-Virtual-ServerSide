@@ -17,6 +17,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(config => config.AddDataReaderMapping(), typeof(ConfigurationProfile));
 
+builder.Services.AddScoped<IDeliveryUseCase, DeliveryUseCase>();
+builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
 builder.Services.AddScoped<IContentUseCase, ContentUseCase>();
 builder.Services.AddScoped<IContentRepository, ContentRepository>();
 
