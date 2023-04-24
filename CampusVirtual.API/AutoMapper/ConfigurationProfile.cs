@@ -1,4 +1,10 @@
 ﻿using AutoMapper;
+using CampusVirtual.Domain.Commands.Courses;
+using CampusVirtual.Domain.Entities;
+using CampusVirtual.Domain.Commands.Content;
+using CampusVirtual.Domain.Entities;
+using CampusVirtual.Domain.Commands.Registration;
+using CampusVirtual.Domain.Entities;
 using CampusVirtual.Domain.Commands.LearningPath;
 using CampusVirtual.Domain.Entities;
 
@@ -8,27 +14,33 @@ namespace CampusVirtual.API.AutoMapper
     {
         public ConfigurationProfile()
         {
-            #region Registrations
+			#region Registrations
 
+			#endregion
+            #region Registrations
+            CreateMap<NewRegistrationCommand, Registration>().ReverseMap();
             #endregion
 
-            #region Learning paths
+			#region Learning paths
 
             CreateMap<InsertNewLearningPath, LearningPath>().ReverseMap();
 
             #endregion
+			
 
-            #region Courses
+            CreateMap<NewCourse, Courses>().ReverseMap();
+			#region Courses
 
-            #endregion
+			#endregion
 
-            #region Contents
+			#region Contents
+			CreateMap<Content, CreateContentCommand>().ReverseMap();
+			CreateMap<Content, UpdateContentCommand>().ReverseMap();
+			#endregion
 
-            #endregion
+			#region Deliveries
 
-            #region Deliveries
-
-            #endregion
-        }
+			#endregion
+		}
     }
 }

@@ -2,6 +2,10 @@ using AutoMapper.Data;
 using Users.API.AutoMapper;
 using Users.Infrastructure;
 using Users.Infrastructure.MongoAdapter.Interfaces;
+using Users.Infrastructure.MongoAdapter.Repositories;
+using Users.UseCases.Gateway;
+using Users.UseCases.Gateway.Repositories;
+using Users.UseCases.UseCases;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +19,10 @@ builder.Services.AddAutoMapper(config => config.AddDataReaderMapping(), typeof(C
 
 
 builder.Services.AddSingleton<IContext>(provider => new Context(builder.Configuration.GetConnectionString("urlConnectionMongo"), "CampusVirtual"));
+
+builder.Services.AddScoped<IUserUseCase, UserUseCase>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 
 var app = builder.Build();
 
