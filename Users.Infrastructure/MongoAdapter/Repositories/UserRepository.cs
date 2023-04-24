@@ -30,7 +30,7 @@ namespace Users.Infrastructure.MongoAdapter.Repositories
             return "User Created";
         }
 
-        public async Task<User> GetUserById(object id)
+        public async Task<User> GetUserById(string id)
         {
             var user = await _collection.FindAsync(x => x.Id == id.ToString());
             var userList = user.ToEnumerable().Select(x => _mapper.Map<User>(x)).ToList();

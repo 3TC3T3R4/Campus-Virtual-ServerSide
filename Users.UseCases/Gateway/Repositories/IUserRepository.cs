@@ -12,6 +12,6 @@ namespace Users.UseCases.Gateway.Repositories
     {
         Task<string> CreateUser(CreateUser user);
         Task<List<User>> GetUsers();
-        Task<User> GetUserById(object id);
+        Task<User> GetUserById(string id);
     }
 }
