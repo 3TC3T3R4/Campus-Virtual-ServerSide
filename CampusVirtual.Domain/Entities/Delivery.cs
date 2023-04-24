@@ -9,15 +9,14 @@ namespace CampusVirtual.Domain.Entities
 {
     public class Delivery
     {
-
-        int deliveryID { get; set; }
-        Guid contentID { get; set; }
-        string uidUser { get; set; }
-        DateTime deliveryAt { get; set; }
-        decimal rating { get; set; }
-        string comment { get; set; }
-        DateTime ratedAt { get; set; }
-        int stateDelivery { get; set; }
-
+        public int deliveryID { get; set; }
+        public Guid contentID { get; set; }
+        public string uidUser { get; set; }
+        public DateTime deliveryAt { get; set; }
+        public decimal rating { get; set; }
+        public string comment { get; set; }
+        public DateTime ratedAt { get; set; }
+        public int stateDelivery { get; set; }
     }
+
 }

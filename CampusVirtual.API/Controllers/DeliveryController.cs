@@ -34,14 +34,14 @@ namespace CampusVirtual.API.Controllers
         }
 
         //GetDeliveryById
-        [HttpGet("{id}")]
+        [HttpGet("ById/")]
         public async Task<Delivery> GetDeliveryById(int deliveryID)
         {
             return await _deliveryUseCase.GetDeliveryById(deliveryID);
         }
 
         //GetDeliveriesByUidUser
-        [HttpGet("{uid}")]
+        [HttpGet("ByUidUsers/")]
 
         public async Task<List<Delivery>> GetDeliveriesByUidUser(string uidUser)
         {

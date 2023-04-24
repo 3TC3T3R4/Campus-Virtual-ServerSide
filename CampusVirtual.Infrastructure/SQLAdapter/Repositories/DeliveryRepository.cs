@@ -50,7 +50,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             {
                 stateDelivery = 2,
             };
-            string sqlQuery = $"UPDATE {tableName} SET stateDelivery = @stateDelivery WHERE deliveryID = {deliveryId}";
+            string sqlQuery = $"UPDATE {tableName} SET stateDelivery = @stateDelivery WHERE deliveryID = {deliveryId} AND stateDelivery = 1";
             await connection.ExecuteAsync(sqlQuery, deteleDelivery);
             connection.Close();
             return "Delivery deleted";
@@ -59,8 +59,12 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         public async Task<Delivery> GetDeliveryById(int deliveryId)
         {
             var connection = await _connectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"SELECT * FROM {tableName} WHERE deliveryID = {deliveryId}";
-            var delivery = await connection.QueryFirstOrDefaultAsync<Delivery>(sqlQuery);
+            string sqlQuery = $"SELECT * FROM {tableName} WHERE deliveryID = @deliveryId";
+            var delivery = await connection.QuerySingleAsync<Delivery>(sqlQuery, new
+            {
+                deliveryId
+
+            });
             connection.Close();
             return delivery;
         }
@@ -68,11 +72,14 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         public async Task<List<Delivery>> GetDeliveriesByUidUser(string uidUser)
         {
             var connection = await _connectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"SELECT * FROM {tableName} WHERE uidUser = {uidUser}";
-            var delivery = await connection.QueryFirstOrDefaultAsync<List<Delivery>>(sqlQuery);
+            var sqlQuery = "SELECT * FROM Deliveries WHERE uidUser = @UidUser";
+            var parameters = new { UidUser = uidUser };
+            var command = new CommandDefinition(sqlQuery, parameters);
+            var deliveries = await connection.QueryAsync<Delivery>(command);
             connection.Close();
-            return delivery.ToList();
+            return deliveries.ToList();
         }
+
 
         public async Task<string> QualifyDelivery(QualifyDelivery qualifyDelivery)
         {
