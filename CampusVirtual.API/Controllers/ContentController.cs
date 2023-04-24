@@ -31,5 +31,23 @@ namespace CampusVirtual.API.Controllers
 		{
 			return await _contentUseCase.GetContentsAsync();
 		}
+
+		[HttpPut]
+		public async Task<string> Update_Content(string idContent, UpdateContentCommand command)
+		{
+			return await _contentUseCase.UpdateContentAsync(idContent, _mapper.Map<Content>(command));
+		}
+
+		[HttpGet("{idContent}")]
+		public async Task<ContentWithDelivery> Get_ById_Content(string idContent)
+		{
+			return await _contentUseCase.GetContentByIdAsync(idContent);
+		}
+
+		[HttpDelete("Delete")]
+		public async Task<string> Delete_Content(string idContent)
+		{
+			return await _contentUseCase.DeleteContentAsync(idContent);
+		}
 	}
 }

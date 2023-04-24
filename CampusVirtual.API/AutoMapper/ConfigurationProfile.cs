@@ -22,6 +22,7 @@ namespace CampusVirtual.API.AutoMapper
 
 			#region Contents
 			CreateMap<Content, CreateContentCommand>().ReverseMap();
+			CreateMap<Content, UpdateContentCommand>().ReverseMap();
 			#endregion
 
 			#region Deliveries

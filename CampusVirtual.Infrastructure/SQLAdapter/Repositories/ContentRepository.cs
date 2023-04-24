@@ -1,13 +1,14 @@
 ﻿
 using Ardalis.GuardClauses;
 using AutoMapper;
+using CampusVirtual.Domain.Common;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Domain.Entities.Wrappers.Content;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
 using System.Text.Json;
-using System.Transactions;
+using static CampusVirtual.Domain.Common.Enums;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -51,14 +52,35 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
 		}
 
-		public Task<string> DeleteContentAsync(string idContent)
+		public async Task<string> DeleteContentAsync(string idContent)
 		{
-			throw new NotImplementedException();
+			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+			var query = $"UPDATE {_tableNameContents} SET stateContent = @StateContent WHERE contentID = @ContentId";
+
+			var parameters = new
+			{
+				StateContent = Enums.StateContent.Deleted,
+				ContentId = Guid.Parse(idContent)
+			};
+
+			await connection.ExecuteScalarAsync(query, parameters);
+
+			connection.Close();
+			return JsonSerializer.Serialize("Deleted");
 		}
 
-		public Task<ContentWithDelivery>  GetContentByIdAsync(string idContent)
+		public async Task<ContentWithDelivery>  GetContentByIdAsync(string idContent)
 		{
-			throw new NotImplementedException();
+			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+			string query = $"SELECT * FROM {_tableNameContents} WHERE contentID = @Id";
+			var parameters = new { Id = Guid.Parse(idContent) };
+
+			var resultado = await connection.QueryFirstOrDefaultAsync<ContentWithDelivery>(query, parameters);
+
+			connection.Close();
+			return resultado;
 		}
 
 		public async Task<List<ContentWithDeliveries>> GetContentsAsync()
@@ -72,9 +94,28 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 			return resultado.ToList();
 		}
 
-		public Task<string> UpdateContentAsync(string idContent, Content content)
+		public async Task<string> UpdateContentAsync(string idContent, Content content)
 		{
-			throw new NotImplementedException();
+			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+			var query = $"UPDATE {_tableNameContents} SET courseID = @CourseID, title = @Title, description = @Description, deliveryField = @DeliveryField," +
+				$" type = @Type, duration = @Duration, stateContent = @StateContent WHERE contentID = @ContentId";
+
+			var parameters = new { 
+				CourseID = content.CourseID, 
+				Title = content.Title,
+				Description = content.Description, 
+				DeliveryField = content.DeliveryField,
+				Type = content.Type,
+				Duration = content.Duration,
+				StateContent = content.StateContent,
+				ContentId = Guid.Parse(idContent)
+			};
+
+			await connection.ExecuteScalarAsync(query, parameters);
+
+			connection.Close();
+			return JsonSerializer.Serialize("Updated");
 		}
 	}
 }
