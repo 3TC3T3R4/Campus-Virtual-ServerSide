@@ -20,7 +20,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             _mapper = mapper;
         }
         #region Endpoints
-        public async Task<Registration> AverageFinalRatingAsync(string uidUser, Guid pathID)
+        public async Task<Registration> AverageFinalRatingAsync(string uidUser, string pathID)
         {
             Guard.Against.NullOrEmpty(uidUser, nameof(uidUser));
             Guard.Against.NullOrEmpty(pathID, nameof(pathID));
@@ -30,7 +30,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var registrationFound = await GetRegistrationByUidUserAndPathIDAsync(uidUser, pathID);
             Guard.Against.Null(registrationFound, nameof(registrationFound), $"There is no a registration available.");
 
-            var ratings = await GetAssociatedRatingsAsync(registrationFound.UidUser, registrationFound.PathID);
+            var ratings = await GetAssociatedRatingsAsync(registrationFound.UidUser, registrationFound.PathID.ToString());
             var finalRating = ratings.Average();
 
             registrationFound.SetFinalRating(finalRating);
@@ -63,7 +63,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-            var registrationFound = await ValidateIfRegistrationExist(registration.UidUser, registration.PathID);
+            var registrationFound = await ValidateIfRegistrationExist(registration.UidUser, registration.PathID.ToString());
             if (registrationFound is null)
             {
                 await connection.ExecuteAsync($"INSERT INTO {_tableNameRegistrations} " +
@@ -139,7 +139,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         #endregion
 
         #region Util methods
-        private async Task<Registration?> ValidateIfRegistrationExist(string uidUser, Guid pathID)
+        private async Task<Registration?> ValidateIfRegistrationExist(string uidUser, string pathID)
         {
             var registrationFound = await GetRegistrationByUidUserAndPathIDAsync(uidUser, pathID);
             if (registrationFound != null)
@@ -149,7 +149,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             return registrationFound ?? null;
         }
 
-        public async Task<List<decimal>> GetAssociatedRatingsAsync(string uidUser, Guid pathID)
+        public async Task<List<decimal>> GetAssociatedRatingsAsync(string uidUser, string pathID)
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
@@ -170,13 +170,13 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             return ratingsFound;
         }
 
-        public async Task<Registration> GetRegistrationByUidUserAndPathIDAsync(string uidUser, Guid pathID)
+        public async Task<Registration> GetRegistrationByUidUserAndPathIDAsync(string uidUser, string pathID)
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
             var registrationFound = (from reg in await connection.QueryAsync<Registration>
                                      ($"SELECT * FROM {_tableNameRegistrations}")
-                                     where reg.UidUser == uidUser && reg.PathID == pathID
+                                     where reg.UidUser == uidUser && reg.PathID == Guid.Parse(pathID)
                                      && reg.StateRegistration == Enums.StateRegistration.Active
                                      select reg)
                                     .FirstOrDefault();

@@ -44,7 +44,7 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpPatch("AverageFinalRating")]
-        public async Task<Registration> AverageFinalRatingAsync(string uidUser, Guid pathID)
+        public async Task<Registration> AverageFinalRatingAsync(string uidUser, string pathID)
         {
             return await _registrationUseCases.AverageFinalRatingAsync(uidUser, pathID);
         }

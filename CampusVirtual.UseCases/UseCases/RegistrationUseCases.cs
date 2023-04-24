@@ -12,7 +12,7 @@ namespace CampusVirtual.UseCases.UseCases
             _registrationRepository = registrationRepository;
         }
 
-        public async Task<Registration> AverageFinalRatingAsync(string uidUser, Guid pathID)
+        public async Task<Registration> AverageFinalRatingAsync(string uidUser, string pathID)
         {
             return await _registrationRepository.AverageFinalRatingAsync(uidUser, pathID);
         }
