@@ -43,6 +43,11 @@ namespace CampusVirtual.UseCases.UseCases
         {
             return await _courseRepository.DeleteCourseAsync(id);
         }
+
+        public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)
+        {
+            return await _courseRepository.UpdateDurationAsync(updateDuration);
+        }
               
 
     }

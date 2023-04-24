@@ -7,6 +7,7 @@ using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,6 +89,37 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var result = await connection.QueryFirstOrDefaultAsync<Courses>(sqlQuery, new { CourseID = id });
             connection.Close();
             return result;
+        }
+
+        public async Task<Courses> DeleteCourseAsync(string id)
+        {
+           
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"UPDATE {_tableNameCourses} SET StateCourse = 0 WHERE CourseID = @CourseID";
+
+            var result = await connection.ExecuteScalarAsync(sqlQuery, new { CourseID = id });
+            connection.Close();
+
+            return _mapper.Map<Courses>(result);          
+           
+            
+        }
+
+        public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)
+        {
+
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            var durationToUpdate = await GetCourseByIdAsync(updateDuration.PathID);
+            durationToUpdate.Duration += updateDuration.Duration;
+
+            string sqlQuery = $"UPDATE {_tableNameCourses} SET Duration = @Duration WHERE CourseID = @CourseID";
+
+            var result = await connection.ExecuteScalarAsync(sqlQuery, durationToUpdate);
+
+            connection.Close();
+
+            return _mapper.Map<Courses>(durationToUpdate);
+
         }
        
     }

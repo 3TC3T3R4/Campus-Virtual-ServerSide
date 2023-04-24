@@ -16,5 +16,6 @@ namespace CampusVirtual.UseCases.Gateway
         Task<UpdateCourse> UpdateCourseAsync(Courses courses);
         Task<Courses> GetCourseByIdAsync(Guid id);
         Task<Courses> DeleteCourseAsync(string id);
+        Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration);
     }
 }

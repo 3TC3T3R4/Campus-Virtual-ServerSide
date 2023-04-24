@@ -54,6 +54,12 @@ namespace CampusVirtual.API.Controllers
             return await _courseUseCase.DeleteCourseAsync(id);
         }
 
+        [HttpPut]
+        [Route("UpdateDuration")]
+        public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)
+        {
+            return await _courseUseCase.UpdateDurationAsync(updateDuration);
+        }
 
     }
 }
