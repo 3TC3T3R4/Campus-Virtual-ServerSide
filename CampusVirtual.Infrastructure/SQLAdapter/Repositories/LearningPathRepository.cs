@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Ardalis.GuardClauses;
+using AutoMapper;
 using CampusVirtual.Domain.Commands.LearningPath;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
@@ -46,6 +47,14 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
         public async Task<InsertNewLearningPath> CreateLearningPathAsync(LearningPath learningPath)
         {
+
+            Guard.Against.Null(learningPath, nameof(learningPath));
+            Guard.Against.NullOrEmpty(learningPath.CoachID, nameof(learningPath.CoachID), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
+            Guard.Against.NullOrEmpty(learningPath.Title, nameof(learningPath.Title), "Ingresa un  titulo por favor, no puedes dejar el campo como nulo o vacio");
+            Guard.Against.NullOrEmpty(learningPath.Description, nameof(learningPath.Description), "No puedes ingresar una descripcion vacia o nula, por favor ingresa alguna descripcion");
+            Guard.Against.NullOrEmpty(learningPath.Duration.ToString(),nameof(learningPath.Duration), "Ingresa por favor una duracion, no puede ser nula o vacia");
+            Guard.Against.NullOrEmpty(learningPath.StatePath.ToString() ,nameof(learningPath.StatePath));
+
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             var createLearnigP = new LearningPath
             {
@@ -112,8 +121,30 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
 
         }
-    
-    
-    
+
+        public async Task<LearningPath> GetLearningPathsByIdAsync(string idPath)
+        {
+
+
+
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths}  WHERE  pathID " +
+                $" =  '{idPath}'";
+            var result = await connection.QueryFirstAsync<LearningPath>(sqlQuery);
+            if
+            (
+                result.ToString() == null
+                )
+            {
+                throw new Exception("No LearningPaths found");
+            }
+            connection.Close();
+            return result;
+
+
+
+
+
+        }
     }
 }

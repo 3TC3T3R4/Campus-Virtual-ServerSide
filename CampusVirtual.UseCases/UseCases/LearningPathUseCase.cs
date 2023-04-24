@@ -4,6 +4,7 @@ using CampusVirtual.UseCases.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,11 @@ namespace CampusVirtual.UseCases.UseCases
         public async  Task<string> DeleteLearningPathByIdAsync(string idPath)
         {
             return await _learningPathRepository.DeleteLearningPathByIdAsync(idPath);
+        }
+
+        public async Task<LearningPath> GetLearningPathByIdAsync(string idPath)
+        {
+            return await _learningPathRepository.GetLearningPathsByIdAsync(idPath);
         }
 
         public async Task<List<LearningPath>> GetLearningPathsAsync()

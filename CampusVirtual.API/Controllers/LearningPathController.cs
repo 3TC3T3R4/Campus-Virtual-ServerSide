@@ -46,14 +46,24 @@ namespace CampusVirtual.API.Controllers
             return await _learningPathUseCase.UpdateLearningPathByIdAsync(id, command);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpDelete("{id:int}")]
         public async Task<string> Delete_LearningPath_By_Id(string id)
         {
             return await _learningPathUseCase.DeleteLearningPathByIdAsync(id);
         }
 
+        [HttpGet("GetById")]
+        public async Task<LearningPath> Get_LearningPath_Id(string id)
+        {
+            return await _learningPathUseCase.GetLearningPathByIdAsync(id);
+        }
 
 
+        //[HttpPut]
+        //public async Task<string> Update_LearningPathDuration(string id)
+        //{
+        //    return await _learningPathUseCase.UpdateLearningPathByIdAsync(id);
+        //}
 
 
 

@@ -20,6 +20,8 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
 
         Task<string> DeleteLearningPathByIdAsync(string idPath);
 
+        Task<LearningPath> GetLearningPathsByIdAsync(string idPath);
+
 
     }
 }
