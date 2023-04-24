@@ -13,7 +13,7 @@ namespace CampusVirtual.Domain.Commands.LearningPath
         public string Title { get;set; }
         public string Description { get;  set; }
         public decimal Duration { get;  set; }
-        public int StatePath { get;  set; }
+       // public int StatePath = 1;
 
 
 

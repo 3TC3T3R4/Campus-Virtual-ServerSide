@@ -20,7 +20,7 @@ namespace CampusVirtual.UseCases.UseCases
             _learningPathRepository = learningPathRepository;
         }
 
-        public async Task<InsertNewLearningPath> CreateLearningPathAsync(LearningPath learningPath)
+        public async Task<LearningPath> CreateLearningPathAsync(LearningPath learningPath)
         {
             return await _learningPathRepository.CreateLearningPathAsync(learningPath);
         }

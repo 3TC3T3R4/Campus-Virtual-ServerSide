@@ -6,11 +6,7 @@ using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -20,7 +16,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         private readonly IMapper _mapper;
 
         private readonly string _tableNameLearningPaths = "LearningPaths";
-        private readonly string _tableNameRegistrations = "Registrations";
+       // private readonly string _tableNameRegistrations = "Registrations";
 
         public LearningPathRepository(IDbConnectionBuilder dbConnectionBuilder, IMapper mapper)
         {
@@ -31,7 +27,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         public async  Task<List<LearningPath>> GetLearningPathsAsync()
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths}";
+            string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths} WHERE  statePath = 1";
             var result = await connection.QueryAsync<LearningPath>(sqlQuery);
             if
             (
@@ -45,7 +41,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         }
 
 
-        public async Task<InsertNewLearningPath> CreateLearningPathAsync(LearningPath learningPath)
+        public async Task<LearningPath> CreateLearningPathAsync(LearningPath learningPath)
         {
 
             Guard.Against.Null(learningPath, nameof(learningPath));
@@ -53,25 +49,24 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.NullOrEmpty(learningPath.Title, nameof(learningPath.Title), "Ingresa un  titulo por favor, no puedes dejar el campo como nulo o vacio");
             Guard.Against.NullOrEmpty(learningPath.Description, nameof(learningPath.Description), "No puedes ingresar una descripcion vacia o nula, por favor ingresa alguna descripcion");
             Guard.Against.NullOrEmpty(learningPath.Duration.ToString(),nameof(learningPath.Duration), "Ingresa por favor una duracion, no puede ser nula o vacia");
-            Guard.Against.NullOrEmpty(learningPath.StatePath.ToString() ,nameof(learningPath.StatePath));
+          //  Guard.Against.NullOrEmpty(learningPath.StatePath.ToString() ,nameof(learningPath.StatePath));
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            var createLearnigP = new LearningPath
+            var createLearnigP = new 
             {
                 CoachID = learningPath.CoachID,
                 Title = learningPath.Title,
                 Description = learningPath.Description,
                 Duration = learningPath.Duration,
-                StatePath  = learningPath.StatePath
+                StatePathB  = 1
         
 
             };
            // LearningPath.Validate(createLearnigP);
 
-            string sqlQuery = $"INSERT INTO {_tableNameLearningPaths} (CoachID,Title,Description,Duration,StatePath) VALUES (@CoachID,@Title,@Description,@Duration,@StatePath )";
-            var result = await connection.ExecuteAsync(sqlQuery, createLearnigP);
-            connection.Close();
-            return _mapper.Map<InsertNewLearningPath>(createLearnigP);
+            string sqlQuery = $"INSERT INTO {_tableNameLearningPaths} (CoachID,Title,Description,Duration,StatePath) VALUES (@CoachID,@Title,@Description,@Duration,@StatePathB)";
+            var rows = await connection.ExecuteAsync(sqlQuery, createLearnigP);
+            return learningPath;
 
         }
 
@@ -119,8 +114,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.Null(path.Duration, nameof(path.Duration), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(path.Duration.ToString(), nameof(path.Duration), "Ingresa por favor el id  no puede ser vacio o nulo");
 
-            Guard.Against.Null(path.StatePath, nameof(path.StatePath), "Ingresa el campo por favor");
-            Guard.Against.NullOrEmpty(path.StatePath.ToString(), nameof(path.StatePath), "Ingresa por favor el id  no puede ser vacio o nulo");
+           
 
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
@@ -141,7 +135,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.NullOrEmpty(idPath, nameof(idPath), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
 
 
-            var param = new { delete = 0 };
+            var param = new { delete = 2 };
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET  statePath = @delete WHERE  id_content = {idPath}";
             var result = await connection.ExecuteAsync(sqlQuery, param);
