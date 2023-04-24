@@ -1,4 +1,5 @@
-﻿using CampusVirtual.Domain.Entities;
+﻿using CampusVirtual.Domain.Commands.LearningPath;
+using CampusVirtual.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace CampusVirtual.UseCases.Gateway
     public interface ILearningPathUseCase
     {
         Task<List<LearningPath>> GetLearningPathsAsync();
-
-
+        Task<InsertNewLearningPath> CreateLearningPathAsync(LearningPath learningPath);
     }
 }

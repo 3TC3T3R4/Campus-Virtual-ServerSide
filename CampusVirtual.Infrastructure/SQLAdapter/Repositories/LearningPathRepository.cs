@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CampusVirtual.Domain.Commands.LearningPath;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
@@ -40,5 +41,33 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             connection.Close();
             return result.ToList();
         }
+
+
+        public async Task<InsertNewLearningPath> CreateLearningPathAsync(LearningPath learningPath)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            var createLearnigP = new LearningPath
+            {
+                CoachID = learningPath.CoachID,
+                Title = learningPath.Title,
+                Description = learningPath.Description,
+                Duration = learningPath.Duration,
+                StatePath  = learningPath.StatePath
+        
+
+            };
+           // LearningPath.Validate(createLearnigP);
+
+            string sqlQuery = $"INSERT INTO {_tableNameLearningPaths} (CoachID,Title,Description,Duration,StatePath) VALUES (@CoachID,@Title,@Description,@Duration,@StatePath )";
+            var result = await connection.ExecuteAsync(sqlQuery, createLearnigP);
+            connection.Close();
+            return _mapper.Map<InsertNewLearningPath>(createLearnigP);
+
+        }
+
+
+
+
+
     }
 }

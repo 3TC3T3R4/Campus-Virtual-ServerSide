@@ -29,7 +29,7 @@ namespace CampusVirtual.API.Controllers
 
         [HttpPost]
         [Route("CreateLearningPath")]
-        public async Task<InsertNewLearningPath> CreateLearningPathAsync(InsertNewLearningPath newLearningPath)
+        public async Task<InsertNewLearningPath> CreateLearningPathAsync([FromBody]InsertNewLearningPath newLearningPath)
         {
             return await _learningPathUseCase.CreateLearningPathAsync(_mapper.Map<LearningPath>(newLearningPath));
         }

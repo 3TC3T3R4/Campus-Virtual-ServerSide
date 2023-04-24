@@ -9,11 +9,11 @@ namespace CampusVirtual.Domain.Commands.LearningPath
     public class InsertNewLearningPath
     {
 
-        public string CoachID { get; private set; }
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public decimal Duration { get; private set; }
-        public int StatePath { get; private set; }
+        public string CoachID { get;  set; }
+        public string Title { get;set; }
+        public string Description { get;  set; }
+        public decimal Duration { get;  set; }
+        public int StatePath { get;  set; }
 
 
 

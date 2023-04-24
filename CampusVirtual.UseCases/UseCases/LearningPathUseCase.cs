@@ -1,4 +1,5 @@
-﻿using CampusVirtual.Domain.Entities;
+﻿using CampusVirtual.Domain.Commands.LearningPath;
+using CampusVirtual.Domain.Entities;
 using CampusVirtual.UseCases.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using System;
@@ -16,6 +17,11 @@ namespace CampusVirtual.UseCases.UseCases
         public LearningPathUseCase(ILearningPathRepository learningPathRepository)
         {
             _learningPathRepository = learningPathRepository;
+        }
+
+        public async Task<InsertNewLearningPath> CreateLearningPathAsync(LearningPath learningPath)
+        {
+            return await _learningPathRepository.CreateLearningPathAsync(learningPath);
         }
 
         public async Task<List<LearningPath>> GetLearningPathsAsync()
