@@ -9,6 +9,6 @@ namespace CampusVirtual.UseCases.Gateway.Repositories
         Task<List<Registration>> GetAllRegistrationsAsync();
         Task<string> DeleteRegistrationAsync(int registrationID);
         //use cases
-        Task<Registration> AverageFinalRatingAsync(string uidUser, Guid pathID, List<decimal> ratings);
+        Task<Registration> AverageFinalRatingAsync(string uidUser, Guid pathID);
     }
 }
