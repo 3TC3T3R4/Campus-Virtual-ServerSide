@@ -44,10 +44,16 @@ namespace CampusVirtual.API.Controllers
 			return await _contentUseCase.GetContentByIdAsync(idContent);
 		}
 
-		[HttpDelete("Delete")]
+		[HttpDelete("{idContent}")]
 		public async Task<string> Delete_Content(string idContent)
 		{
 			return await _contentUseCase.DeleteContentAsync(idContent);
+		}
+
+		[HttpGet("/Course/{courseId}")]
+		public async Task<List<ContentWithDelivery>> Get_ById_Course(string courseId)
+		{
+			return await _contentUseCase.GetContentByCourseIdAsync(courseId);
 		}
 	}
 }

@@ -12,10 +12,6 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
     {
         private readonly IDbConnectionBuilder _dbConnectionBuilder;
         private readonly string _tableNameRegistrations = "Registrations";
-        private readonly string _tableNameLearningPaths = "LearningPaths";
-        private readonly string _tableNameCourses = "Courses";
-        private readonly string _tableNameContents = "Contents";
-        private readonly string _tableNameDeliveries = "Deliveries";
         private readonly IMapper _mapper;
 
         public RegistrationRepository(IDbConnectionBuilder dbConnectionBuilder, IMapper mapper)
@@ -24,17 +20,17 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             _mapper = mapper;
         }
         #region Endpoints
-        public async Task<Registration> AverageFinalRatingAsync(string uidUser, Guid pathID, List<decimal> ratings)
+        public async Task<Registration> AverageFinalRatingAsync(string uidUser, string pathID)
         {
             Guard.Against.NullOrEmpty(uidUser, nameof(uidUser));
             Guard.Against.NullOrEmpty(pathID, nameof(pathID));
-            Guard.Against.NullOrEmpty(ratings, nameof(ratings));
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
             var registrationFound = await GetRegistrationByUidUserAndPathIDAsync(uidUser, pathID);
             Guard.Against.Null(registrationFound, nameof(registrationFound), $"There is no a registration available.");
 
+            var ratings = await GetAssociatedRatingsAsync(registrationFound.UidUser, registrationFound.PathID.ToString());
             var finalRating = ratings.Average();
 
             registrationFound.SetFinalRating(finalRating);
@@ -67,7 +63,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-            var registrationFound = await ValidateIfRegistrationExist(registration.UidUser, registration.PathID);
+            var registrationFound = await ValidateIfRegistrationExist(registration.UidUser, registration.PathID.ToString());
             if (registrationFound is null)
             {
                 await connection.ExecuteAsync($"INSERT INTO {_tableNameRegistrations} " +
@@ -143,7 +139,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         #endregion
 
         #region Util methods
-        private async Task<Registration?> ValidateIfRegistrationExist(string uidUser, Guid pathID)
+        private async Task<Registration?> ValidateIfRegistrationExist(string uidUser, string pathID)
         {
             var registrationFound = await GetRegistrationByUidUserAndPathIDAsync(uidUser, pathID);
             if (registrationFound != null)
@@ -153,33 +149,34 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             return registrationFound ?? null;
         }
 
-        public async Task<List<decimal>> GetAssociatedRatingsAsync(string uidUser, Guid pathID)
+        public async Task<List<decimal>> GetAssociatedRatingsAsync(string uidUser, string pathID)
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
             var registrationFound = await GetRegistrationByUidUserAndPathIDAsync(uidUser, pathID);
             Guard.Against.Null(registrationFound, nameof(registrationFound), $"There is no a registration available.");
 
-            var pathQuery = $"SELECT * FROM {_tableNameLearningPaths} WHERE pathID = @pathID";
-            var coursesQuery = $"SELECT * FROM {_tableNameCourses} WHERE pathID = @pathID";
+            var query = $"SELECT d.rating " +
+                        $"FROM Registrations re " +
+                        $"INNER JOIN LearningPaths lp ON re.pathID = lp.pathID " +
+                        $"INNER JOIN Courses c ON lp.pathID = c.pathID " +
+                        $"INNER JOIN Contents ct ON ct.courseID = c.courseID " +
+                        $"INNER JOIN Deliveries d ON ct.contentID = d.contentID " +
+                        $"WHERE re.uidUser = '{uidUser}' " +
+                        $"AND d.rating IS NOT NULL";
 
-            var multiQuery = $"{pathQuery};{coursesQuery}";
-
-            using var multi = await connection.QueryMultipleAsync(multiQuery, new { pathID });
-
-            //var customer = await multi.ReadFirstOrDefaultAsync<LearningPath>();
-            //var coursesFound = await multi.ReadAsync<List<Courses>();
-
-            throw new NotImplementedException();
+            var ratingsFound = (from rating in await connection.QueryAsync<decimal>(query) select rating).ToList();
+            connection.Close();
+            return ratingsFound;
         }
 
-        public async Task<Registration> GetRegistrationByUidUserAndPathIDAsync(string uidUser, Guid pathID)
+        public async Task<Registration> GetRegistrationByUidUserAndPathIDAsync(string uidUser, string pathID)
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
             var registrationFound = (from reg in await connection.QueryAsync<Registration>
                                      ($"SELECT * FROM {_tableNameRegistrations}")
-                                     where reg.UidUser == uidUser && reg.PathID == pathID
+                                     where reg.UidUser == uidUser && reg.PathID == Guid.Parse(pathID)
                                      && reg.StateRegistration == Enums.StateRegistration.Active
                                      select reg)
                                     .FirstOrDefault();

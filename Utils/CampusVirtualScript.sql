@@ -10,7 +10,7 @@ CREATE TABLE LearningPaths (
     coachID VARCHAR(40) NOT NULL,
     title VARCHAR(80) NOT NULL,
     description VARCHAR(150) NOT NULL,
-    duration DECIMAL NOT NULL,
+    duration DECIMAL(18,2) NOT NULL,
     statePath INT NOT NULL,
 );
 
@@ -19,7 +19,7 @@ CREATE TABLE Courses (
     pathID UNIQUEIDENTIFIER NOT NULL,
     title VARCHAR(80) NOT NULL,
     description VARCHAR(150) NOT NULL,
-    duration DECIMAL NOT NULL,
+    duration DECIMAL(18,2) NOT NULL,
     stateCourse INT NOT NULL,
     CONSTRAINT FK_Courses_LearningPaths FOREIGN KEY (pathID) 
 	REFERENCES LearningPaths (pathID) ON DELETE CASCADE
@@ -32,7 +32,7 @@ CREATE TABLE Contents (
     description VARCHAR(MAX) NOT NULL,
     deliveryField VARCHAR(500),
     type INT NOT NULL,
-    duration DECIMAL NOT NULL,
+    duration DECIMAL(18,2) NOT NULL,
     stateContent INT NOT NULL,
     CONSTRAINT FK_Contents_Courses FOREIGN KEY (courseID) 
 	REFERENCES Courses (courseID) ON DELETE CASCADE
@@ -43,7 +43,7 @@ CREATE TABLE Deliveries (
     contentID UNIQUEIDENTIFIER NOT NULL,
     uidUser VARCHAR(40) NOT NULL,
     deliveryAt DATETIME NOT NULL,
-    rating DECIMAL,
+    rating DECIMAL(18,2),
     comment VARCHAR(100),
     ratedAt DATETIME,
     stateDelivery INT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE Registrations (
     uidUser VARCHAR(40) NOT NULL,
     pathID UNIQUEIDENTIFIER NOT NULL,
     createdAt DATETIME NOT NULL,
-    finalRating DECIMAL,
+    finalRating DECIMAL(18,2),
     stateRegistration INT NOT NULL,
     CONSTRAINT FK_Registrations_LearningPaths FOREIGN KEY (pathID) 
 	REFERENCES LearningPaths (pathID) ON DELETE CASCADE
