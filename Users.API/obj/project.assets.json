@@ -1594,17 +1594,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Miguel-PC\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\juans\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> da7cf54daf682f850176445ca84c8afd6e6fd1e1
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\Users.API\\Users.API.csproj",
       "projectName": "Users.API",
       "projectPath": "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\Users.API\\Users.API.csproj",
@@ -1613,20 +1607,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Miguel-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
-      "projectName": "Users.API",
-      "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
-      "packagesPath": "C:\\Users\\juans\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.API\\obj\\",
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
-      "configFilePaths": [
-        "C:\\Users\\juans\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> da7cf54daf682f850176445ca84c8afd6e6fd1e1
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1634,17 +1614,12 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-<<<<<<< HEAD
-=======
-        "C:\\Program Files\\dotnet\\library-packs": {},
->>>>>>> da7cf54daf682f850176445ca84c8afd6e6fd1e1
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\Users.Domain\\Users.Domain.csproj": {
               "projectPath": "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\Users.Domain\\Users.Domain.csproj"
             },
@@ -1653,16 +1628,6 @@
             },
             "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\Users.UseCases\\Users.UseCases.csproj": {
               "projectPath": "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\Users.UseCases\\Users.UseCases.csproj"
-=======
-            "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-              "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
-            },
-            "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj"
-            },
-            "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
-              "projectPath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
->>>>>>> da7cf54daf682f850176445ca84c8afd6e6fd1e1
             }
           }
         }
@@ -1713,27 +1678,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  }
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
-      }
-    }
-<<<<<<< HEAD
-  }
-=======
   },
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\Users.API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
->>>>>>> 15c092ad638b7b887d0f0e6c735c4b52c16dc627
->>>>>>> da7cf54daf682f850176445ca84c8afd6e6fd1e1
 }
