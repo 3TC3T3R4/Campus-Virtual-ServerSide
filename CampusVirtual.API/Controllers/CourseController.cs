@@ -49,7 +49,7 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<Courses> DeleteCourseAsync(string id)
+        public async Task<string> DeleteCourseAsync(string id)
         {
             return await _courseUseCase.DeleteCourseAsync(id);
         }

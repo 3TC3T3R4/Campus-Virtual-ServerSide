@@ -38,8 +38,8 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
 			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, deliveryField, type, duration, stateContent) " +
-				$"VALUES (@CourseID, @Title, @Description, @DeliveryField, @Type, @Duration, @StateContent);";
+			var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, type, duration, stateContent) " +
+				$"VALUES (@CourseID, @Title, @Description, @Type, @Duration, @StateContent);";
 			await connection.ExecuteScalarAsync(sql, content);
 
 			connection.Close();
@@ -126,13 +126,12 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 				throw new ArgumentException("Content not found");
 			}
 
-			var query = $"UPDATE {_tableNameContents} SET courseID = @CourseID, title = @Title, description = @Description, deliveryField = @DeliveryField," +
+			var query = $"UPDATE {_tableNameContents} SET courseID = @CourseID, title = @Title, description = @Description, " +
 				$" type = @Type, duration = @Duration, stateContent = @StateContent WHERE contentID = @ContentId";
 
 			entityToUpdate.SetCourseID(content.CourseID);
 			entityToUpdate.SetTitle(content.Title);
 			entityToUpdate.SetDescription(content.Description);
-			entityToUpdate.SetDeliveryField(content.DeliveryField);
 			entityToUpdate.SetType(content.Type);
 			entityToUpdate.SetDuration(content.Duration);
 			entityToUpdate.SetStateContent(content.StateContent);

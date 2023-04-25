@@ -39,7 +39,7 @@ namespace CampusVirtual.UseCases.UseCases
             return await _courseRepository.GetCoursesByPathIdAsync(id);
         }
         
-        public async Task<Courses> DeleteCourseAsync(string id)
+        public async Task<string> DeleteCourseAsync(string id)
         {
             return await _courseRepository.DeleteCourseAsync(id);
         }
