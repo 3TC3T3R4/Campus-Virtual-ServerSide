@@ -969,19 +969,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kevin\\.nuget\\packages\\": {}
+    "C:\\Users\\Rolando\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
       "projectName": "Users.Infrastructure",
-      "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\Rolando\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rolando\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -995,11 +995,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-              "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
+            "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
+              "projectPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
             },
-            "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
-              "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
+            "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
+              "projectPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
             }
           }
         }
@@ -1043,16 +1043,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

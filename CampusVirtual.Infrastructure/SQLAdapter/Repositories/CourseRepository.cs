@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Ardalis.GuardClauses;
+using AutoMapper;
 using CampusVirtual.Domain.Commands.Courses;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
