@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "282oA9SeQ7YC4Hh9XXj1L9sG6kg5vP1UoeFw4XEp7BFZzG+EUDJjz3mn49Qww/pTMNgkQAllRIlODXaasN2EDw==",
+<<<<<<< HEAD
+  "dgSpecHash": "8EP5Oc5flRcskXW2jRXdtRBAQ0L4b6J119j9Jg+nXtRQmlGMdQAubs0/ile8N+6e9iuf0YYaZ/Zt4ClwQJTqtA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
+  "projectFilePath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
+=======
+  "dgSpecHash": "GGp4diqZ9lQK9sPewTurInQvPC2CTe91Tw7HpatMwVu/WlQKHjm0zMJBrAz5vOQSL7eEAJ4ylPJCuam/Y0OQjQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
   "expectedPackageFiles": [],
   "logs": []
 }
