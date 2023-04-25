@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ardalis.GuardClauses;
+﻿using Ardalis.GuardClauses;
 using CampusVirtual.Domain.Commands.Delivery;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
@@ -28,6 +23,8 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.Null(createDelivery, nameof(createDelivery), "CreateDelivery is null");
             Guard.Against.NullOrEmpty(createDelivery.contentID, nameof(createDelivery.contentID), "Content ID is null or empty");
             Guard.Against.NullOrEmpty(createDelivery.uidUser, nameof(createDelivery.uidUser), "User ID is null or empty");
+            Guard.Against.NullOrEmpty(createDelivery.DeliveryField, nameof(createDelivery.DeliveryField), "Delivery field is null or empty");
+
 
             var connection = await _connectionBuilder.CreateConnectionAsync();
 
@@ -46,10 +43,12 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                 contentID = createDelivery.contentID,
                 uidUser = createDelivery.uidUser,
                 deliveryAt = DateTime.Now,
+                deliveryField = createDelivery.DeliveryField,
                 stateDelivery = 1,
             };
 
-            string sqlQuery = $"INSERT INTO {tableName} (contentID, uidUser, deliveryAt, stateDelivery) VALUES (@contentID, @uidUser, @deliveryAt, @stateDelivery)";
+            string sqlQuery = $"INSERT INTO {tableName} (contentID, uidUser, deliveryAt, deliveryField, stateDelivery) " +
+                $"VALUES (@contentID, @uidUser, @deliveryAt, @deliveryField, @stateDelivery)";
             await connection.ExecuteAsync(sqlQuery, newDelivery);
 
             connection.Close();
@@ -85,11 +84,11 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.OutOfRange(deliveryId, nameof(deliveryId), 1, int.MaxValue, "Delivery ID is invalid");
             var connection = await _connectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"SELECT * FROM {tableName} WHERE deliveryID = @deliveryId AND stateDelivery = 1";
-            var delivery = await connection.QuerySingleAsync<Delivery>(sqlQuery, new
+            var delivery = await connection.QueryFirstOrDefaultAsync<Delivery>(sqlQuery, new
             {
                 deliveryId
-
             });
+            Guard.Against.Null(delivery, nameof(delivery), "There is no a delivery available.");
             connection.Close();
             return delivery;
         }
@@ -103,6 +102,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var parameters = new { UidUser = uidUser };
             var command = new CommandDefinition(sqlQuery, parameters);
             var deliveries = await connection.QueryAsync<Delivery>(command);
+            Guard.Against.NullOrEmpty(deliveries, nameof(deliveries), "There are no deliveries available.");
             connection.Close();
             return deliveries.ToList();
         }
@@ -113,7 +113,9 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         {
             Guard.Against.Null(qualifyDelivery, nameof(qualifyDelivery), "QualifyDelivery is null");
             Guard.Against.OutOfRange(qualifyDelivery.deliveryID, nameof(qualifyDelivery.deliveryID), 1, int.MaxValue, "Delivery ID is invalid");
+            Guard.Against.OutOfRange(qualifyDelivery.rating, nameof(qualifyDelivery.rating), 0, 100);
             Guard.Against.NullOrEmpty(qualifyDelivery.comment, nameof(qualifyDelivery.comment), "Comment is null or empty");
+
 
             var connection = await _connectionBuilder.CreateConnectionAsync();
             var delivery = await GetDeliveryById(qualifyDelivery.deliveryID);
@@ -156,10 +158,9 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var parameters = new { PathId = pathID };
             var command = new CommandDefinition(sqlQuery, parameters);
             var deliveries = await connection.QueryAsync<Delivery>(command);
+            Guard.Against.NullOrEmpty(deliveries, nameof(deliveries), "There are no deliveries available.");
             connection.Close();
             return deliveries.ToList();
         }
-
-
     }
 }

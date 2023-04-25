@@ -29,7 +29,7 @@ namespace CampusVirtual.API.Controllers
 
         [HttpPost]
         [Route("CreateLearningPath")]
-        public async Task<LearningPath> CreateLearningPathAsync([FromBody]InsertNewLearningPath newLearningPath)
+        public async Task<LearningPath> CreateLearningPathAsync([FromBody] InsertNewLearningPath newLearningPath)
         {
             return await _learningPathUseCase.CreateLearningPathAsync(_mapper.Map<LearningPath>(newLearningPath));
         }
@@ -41,12 +41,12 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpPut]
-        public async Task<InsertNewLearningPath> Update_Learning_By_Id(string id, [FromBody] InsertNewLearningPath command)
+        public async Task<LearningPath> Update_Learning_By_Id(string id, [FromBody] UpdateLearningPaths command)
         {
             return await _learningPathUseCase.UpdateLearningPathByIdAsync(id, command);
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id}")]
         public async Task<string> Delete_LearningPath_By_Id(string id)
         {
             return await _learningPathUseCase.DeleteLearningPathByIdAsync(id);
@@ -60,9 +60,9 @@ namespace CampusVirtual.API.Controllers
 
 
         [HttpPatch("UpdateDuration")]
-        public async Task<string> UpdateLearningPathDuration(string id, int numberCourses)
+        public async Task<string> UpdateLearningPathDuration(string id, decimal totalDuration)
         {
-            return await _learningPathUseCase.UpdateLearningPathDurationAsync(id, numberCourses);
+            return await _learningPathUseCase.UpdateLearningPathDurationAsync(id, totalDuration);
         }
 
 

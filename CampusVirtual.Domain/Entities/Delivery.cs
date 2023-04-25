@@ -13,6 +13,7 @@ namespace CampusVirtual.Domain.Entities
         public Guid contentID { get; set; }
         public string uidUser { get; set; }
         public DateTime deliveryAt { get; set; }
+        public string DeliveryField { get; set; }
         public decimal rating { get; set; }
         public string comment { get; set; }
         public DateTime ratedAt { get; set; }

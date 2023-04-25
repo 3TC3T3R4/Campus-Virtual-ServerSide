@@ -2,11 +2,6 @@
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.UseCases.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CampusVirtual.UseCases.UseCases
 {
@@ -17,7 +12,7 @@ namespace CampusVirtual.UseCases.UseCases
         public CourseUseCase(ICourseRepository courseRepository)
         {
             _courseRepository = courseRepository;
-        }        
+        }
 
         public async Task<NewCourse> CreateCourseAsync(Courses courses)
         {
@@ -27,19 +22,19 @@ namespace CampusVirtual.UseCases.UseCases
         public async Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse)
         {
             return await _courseRepository.UpdateCourseAsync(updateCourse);
-        }           
+        }
 
         public async Task<Courses> GetCourseByIdAsync(Guid id)
         {
             return await _courseRepository.GetCourseByIdAsync(id);
-        }     
+        }
 
         public async Task<List<Courses>> GetCoursesByPathIdAsync(Guid id)
         {
             return await _courseRepository.GetCoursesByPathIdAsync(id);
         }
-        
-        public async Task<Courses> DeleteCourseAsync(string id)
+
+        public async Task<string> DeleteCourseAsync(string id)
         {
             return await _courseRepository.DeleteCourseAsync(id);
         }
@@ -52,7 +47,11 @@ namespace CampusVirtual.UseCases.UseCases
         public async Task<Courses> ConfigureToPathAsync(AssingToPath assingToPath)
         {
             return await _courseRepository.ConfigureToPathAsync(assingToPath);
-        }              
+        }
 
+        public async Task<List<Courses>> GetActiveCoursesAsync()
+        {
+            return await _courseRepository.GetActiveCoursesAsync();
+        }
     }
 }

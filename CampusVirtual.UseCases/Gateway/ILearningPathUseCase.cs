@@ -1,10 +1,5 @@
 ﻿using CampusVirtual.Domain.Commands.LearningPath;
 using CampusVirtual.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CampusVirtual.UseCases.Gateway
 {
@@ -15,12 +10,12 @@ namespace CampusVirtual.UseCases.Gateway
 
         Task<List<LearningPath>> GetLearningPathsByCoachAsync(string coachID);
 
-        Task<InsertNewLearningPath> UpdateLearningPathByIdAsync(string idPath, InsertNewLearningPath path);
+        Task<LearningPath> UpdateLearningPathByIdAsync(string idPath, UpdateLearningPaths path);
         Task<string> DeleteLearningPathByIdAsync(string idPath);
 
 
-        Task<LearningPath>GetLearningPathByIdAsync(string coachID);
+        Task<LearningPath> GetLearningPathByIdAsync(string coachID);
 
-        Task<string> UpdateLearningPathDurationAsync(string idPath, int numberCourses);
+        Task<string> UpdateLearningPathDurationAsync(string idPath, decimal totalDuration);
     }
 }

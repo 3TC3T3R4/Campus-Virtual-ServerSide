@@ -27,6 +27,12 @@ namespace CampusVirtual.API.Controllers
             return await _courseUseCase.CreateCourseAsync(_mapper.Map<Courses>(newCourse));
         }
 
+        [HttpGet("Active")]
+        public async Task<List<Courses>> GetActiveCoursesAsync()
+        {
+            return await _courseUseCase.GetActiveCoursesAsync();
+        }
+
         [HttpGet]
         [Route("GetCoursesByPathId")]
         public async Task<List<Courses>> GetCoursesByPathIdAsync([FromQuery] Guid id)
@@ -49,7 +55,7 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<Courses> DeleteCourseAsync(string id)
+        public async Task<string> DeleteCourseAsync(string id)
         {
             return await _courseUseCase.DeleteCourseAsync(id);
         }
@@ -68,7 +74,5 @@ namespace CampusVirtual.API.Controllers
         {
             return await _courseUseCase.ConfigureToPathAsync(assingToPath);
         }
-
-
     }
 }

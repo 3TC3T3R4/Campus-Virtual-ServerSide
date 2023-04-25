@@ -13,8 +13,6 @@ namespace CampusVirtual.Domain.Entities
 
 		public string Description { get; private set; }
 
-		public string DeliveryField { get; private set; }
-
 		public Enums.TypeContent Type { get; private set; }
 
 		public decimal Duration { get; private set; }
@@ -53,11 +51,6 @@ namespace CampusVirtual.Domain.Entities
 		public void SetDescription(string description)
 		{
 			Description = description;
-		}
-
-		public void SetDeliveryField(string deliveryField)
-		{
-			DeliveryField = deliveryField;
 		}
 
 		public void SetType(Enums.TypeContent type)

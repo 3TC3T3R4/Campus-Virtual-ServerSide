@@ -27,7 +27,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         public async  Task<List<LearningPath>> GetLearningPathsAsync()
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths} WHERE  statePath = 1";
+            string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths} WHERE statePath = 1";
             var result = await connection.QueryAsync<LearningPath>(sqlQuery);
             if
             (
@@ -48,7 +48,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.NullOrEmpty(learningPath.CoachID, nameof(learningPath.CoachID), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
             Guard.Against.NullOrEmpty(learningPath.Title, nameof(learningPath.Title), "Ingresa un  titulo por favor, no puedes dejar el campo como nulo o vacio");
             Guard.Against.NullOrEmpty(learningPath.Description, nameof(learningPath.Description), "No puedes ingresar una descripcion vacia o nula, por favor ingresa alguna descripcion");
-            Guard.Against.NullOrEmpty(learningPath.Duration.ToString(),nameof(learningPath.Duration), "Ingresa por favor una duracion, no puede ser nula o vacia");
+            //Guard.Against.NullOrEmpty(learningPath.Duration.ToString(),nameof(learningPath.Duration), "Ingresa por favor una duracion, no puede ser nula o vacia");
           //  Guard.Against.NullOrEmpty(learningPath.StatePath.ToString() ,nameof(learningPath.StatePath));
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
@@ -57,17 +57,14 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                 CoachID = learningPath.CoachID,
                 Title = learningPath.Title,
                 Description = learningPath.Description,
-                Duration = learningPath.Duration,
+                Duration = 0,
                 StatePathB  = 1
-        
-
             };
            // LearningPath.Validate(createLearnigP);
 
             string sqlQuery = $"INSERT INTO {_tableNameLearningPaths} (CoachID,Title,Description,Duration,StatePath) VALUES (@CoachID,@Title,@Description,@Duration,@StatePathB)";
             var rows = await connection.ExecuteAsync(sqlQuery, createLearnigP);
             return learningPath;
-
         }
 
 
@@ -91,20 +88,16 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             }
             connection.Close();
             return result.ToList();
-
-
-
-
         }
 
-        public async Task<InsertNewLearningPath> UpdateLearningPathByIdAsync(string idPath, InsertNewLearningPath path)
+        public async Task<LearningPath> UpdateLearningPathByIdAsync(string idPath, UpdateLearningPaths path)
         {
-
             Guard.Against.Null(idPath, nameof(idPath), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(idPath, nameof(idPath), "Ingresa por favor el id  no puede ser vacio o nulo");
 
             Guard.Against.Null(path.CoachID, nameof(path.CoachID), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(path.CoachID, nameof(path.CoachID), "Ingresa por favor el id  no puede ser vacio o nulo");
+
             Guard.Against.Null(path.Title, nameof(path.Title), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(path.Title, nameof(path.Title), "Ingresa por favor el id  no puede ser vacio o nulo");
 
@@ -114,19 +107,12 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.Null(path.Duration, nameof(path.Duration), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(path.Duration.ToString(), nameof(path.Duration), "Ingresa por favor el id  no puede ser vacio o nulo");
 
-           
-
-
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET coachID = @coachID,title = @title,description = @description,duration = @duration,statePath = @statePath WHERE pathID = {idPath}";
+            string sqlQuery = $"UPDATE {_tableNameLearningPaths} " +
+                $"SET coachID = @coachID, title = @title, description = @description, " +
+                $"duration = @duration, statePath = @statePath WHERE pathID = '{idPath}'";
             var rows = await connection.ExecuteAsync(sqlQuery, path);
-            return path;
-           
-
-
-          
-
-
+            return _mapper.Map<LearningPath>(path);
         }
 
         public async Task<string> DeleteLearningPathByIdAsync(string idPath)
@@ -137,12 +123,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
             var param = new { delete = 2 };
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET  statePath = @delete WHERE  id_content = {idPath}";
+            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET statePath = @delete WHERE  pathID = '{idPath}'";
             var result = await connection.ExecuteAsync(sqlQuery, param);
             connection.Close();
-            return "ConentDelted";
-
-
+            return "Path deleted";
         }
 
         public async Task<LearningPath> GetLearningPathsByIdAsync(string idPath)
@@ -150,43 +134,31 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.Null(idPath, nameof(idPath), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(idPath, nameof(idPath), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
 
-
-
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"SELECT * FROM {_tableNameLearningPaths}  WHERE  pathID " +
-                $" =  '{idPath}'";
-            var result = await connection.QueryFirstAsync<LearningPath>(sqlQuery);
-            if
-            (
-                result.ToString() == null
-                )
+                $" =  '{idPath}' AND statePath = 1";
+            var result = await connection.QueryFirstOrDefaultAsync<LearningPath>(sqlQuery);
+            if(result == null)
             {
                 throw new Exception("No LearningPaths found");
             }
             connection.Close();
             return result;
-
-
-
-
-
         }
 
-        public async Task<string> UpdateLearningPathDurationAsync(string idPath, int numberCourses)
+        public async Task<string> UpdateLearningPathDurationAsync(string idPath, decimal totalDuration)
         {
             Guard.Against.Null(idPath, nameof(idPath), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(idPath, nameof(idPath), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
-            Guard.Against.Null(numberCourses, nameof(numberCourses), "Ingresa el campo por favor");
-            Guard.Against.NullOrEmpty(numberCourses.ToString(), nameof(numberCourses), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
+            Guard.Against.Null(totalDuration, nameof(totalDuration), "Ingresa el campo por favor");
+            Guard.Against.NullOrEmpty(totalDuration.ToString(), nameof(totalDuration), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
 
+            var numberConverted = decimal.Parse(totalDuration.ToString().Replace(",", "."));
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
-            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET  duration = {numberCourses} WHERE  pathID = '{idPath}' ";
+            string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET duration = {numberConverted} WHERE pathID = '{idPath}' ";
             var result = await connection.ExecuteAsync(sqlQuery);
             connection.Close();
-            return "DurationUpdated";
-
-
-
+            return "Duration Updated";
         }
     }
 }
