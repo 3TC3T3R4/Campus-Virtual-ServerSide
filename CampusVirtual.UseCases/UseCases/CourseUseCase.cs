@@ -49,9 +49,9 @@ namespace CampusVirtual.UseCases.UseCases
             return await _courseRepository.UpdateDurationAsync(updateDuration);
         }
 
-        public async Task<Courses> AssingToPathAsync(AssingToPath assingToPath)
+        public async Task<Courses> ConfigureToPathAsync(AssingToPath assingToPath)
         {
-            return await _courseRepository.AssingToPathAsync(assingToPath);
+            return await _courseRepository.ConfigureToPathAsync(assingToPath);
         }              
 
     }

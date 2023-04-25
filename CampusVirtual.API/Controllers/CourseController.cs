@@ -62,11 +62,11 @@ namespace CampusVirtual.API.Controllers
         }        
 
         [HttpPatch]
-        [Route("AssingToPath")]
+        [Route("ConfigureToPath")]
 
-        public async Task<Courses> AssingToPathAsync(AssingToPath assingToPath)
+        public async Task<Courses> ConfigureToPathAsync(AssingToPath assingToPath)
         {
-            return await _courseUseCase.AssingToPathAsync(assingToPath);
+            return await _courseUseCase.ConfigureToPathAsync(assingToPath);
         }
 
 
