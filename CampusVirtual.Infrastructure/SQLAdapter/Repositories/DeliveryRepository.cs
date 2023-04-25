@@ -84,11 +84,11 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.OutOfRange(deliveryId, nameof(deliveryId), 1, int.MaxValue, "Delivery ID is invalid");
             var connection = await _connectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"SELECT * FROM {tableName} WHERE deliveryID = @deliveryId AND stateDelivery = 1";
-            var delivery = await connection.QuerySingleAsync<Delivery>(sqlQuery, new
+            var delivery = await connection.QueryFirstOrDefaultAsync<Delivery>(sqlQuery, new
             {
                 deliveryId
-
             });
+            Guard.Against.Null(delivery, nameof(delivery), "There is no a delivery available.");
             connection.Close();
             return delivery;
         }
@@ -102,6 +102,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var parameters = new { UidUser = uidUser };
             var command = new CommandDefinition(sqlQuery, parameters);
             var deliveries = await connection.QueryAsync<Delivery>(command);
+            Guard.Against.NullOrEmpty(deliveries, nameof(deliveries), "There are no deliveries available.");
             connection.Close();
             return deliveries.ToList();
         }
@@ -157,6 +158,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var parameters = new { PathId = pathID };
             var command = new CommandDefinition(sqlQuery, parameters);
             var deliveries = await connection.QueryAsync<Delivery>(command);
+            Guard.Against.NullOrEmpty(deliveries, nameof(deliveries), "There are no deliveries available.");
             connection.Close();
             return deliveries.ToList();
         }
