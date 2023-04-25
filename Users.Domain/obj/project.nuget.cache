@@ -1,15 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "ICq/ifK1yYJod9L05kqKg2U7hl5DA/poOa+o2JJDyUdSc8Q39hkndxkmF5YvnGAZ+l1Ro79Gqjm9/O2u21bk9g==",
+  "dgSpecHash": "q8U8+x/qRB+nL+7eEDTVKKJNooiQYKmYOMg1sejIVnyEtPTYvFe/9SBpkK/rhK/OQ/l3X9hOXlI29gQ1MC51fA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+  "projectFilePath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
   "expectedPackageFiles": [],
+<<<<<<< HEAD
+  "logs": []
+=======
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problema al leer el archivo de caché C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
+>>>>>>> 15c092ad638b7b887d0f0e6c735c4b52c16dc627
 }

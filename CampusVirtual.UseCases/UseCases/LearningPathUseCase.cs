@@ -2,12 +2,6 @@
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.UseCases.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CampusVirtual.UseCases.UseCases
 {
@@ -25,7 +19,7 @@ namespace CampusVirtual.UseCases.UseCases
             return await _learningPathRepository.CreateLearningPathAsync(learningPath);
         }
 
-        public async  Task<string> DeleteLearningPathByIdAsync(string idPath)
+        public async Task<string> DeleteLearningPathByIdAsync(string idPath)
         {
             return await _learningPathRepository.DeleteLearningPathByIdAsync(idPath);
         }
@@ -45,14 +39,14 @@ namespace CampusVirtual.UseCases.UseCases
             return await _learningPathRepository.GetLearningPathsByCoachAsync(coachID);
         }
 
-        public async Task<InsertNewLearningPath> UpdateLearningPathByIdAsync(string idPath, InsertNewLearningPath path)
+        public async Task<LearningPath> UpdateLearningPathByIdAsync(string idPath, UpdateLearningPaths path)
         {
-            return await _learningPathRepository.UpdateLearningPathByIdAsync(idPath,path);
+            return await _learningPathRepository.UpdateLearningPathByIdAsync(idPath, path);
         }
 
-        public async Task<string>UpdateLearningPathDurationAsync(string idPath, int numberCourses)
+        public async Task<string> UpdateLearningPathDurationAsync(string idPath, decimal totalDuration)
         {
-            return await _learningPathRepository.UpdateLearningPathDurationAsync(idPath, numberCourses);
+            return await _learningPathRepository.UpdateLearningPathDurationAsync(idPath, totalDuration);
         }
     }
 }

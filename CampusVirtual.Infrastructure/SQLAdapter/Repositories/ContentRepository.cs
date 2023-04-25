@@ -36,15 +36,28 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
 			Content.SetDetailsContentEntity(content);
 
-			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, deliveryField, type, duration, stateContent) " +
-				$"VALUES (@CourseID, @Title, @Description, @DeliveryField, @Type, @Duration, @StateContent);";
-			await connection.ExecuteScalarAsync(sql, content);
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			connection.Close();
-			return JsonSerializer.Serialize("Created");
+			Content.SetDetailsContentEntity(content);
 
+            if (content.Type >= TypeContent.Workshop && content.Type <= TypeContent.Challenge)
+            {
+               
+                var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, type, duration, stateContent) " +
+                          $"VALUES (@CourseID, @Title, @Description, @Type, @Duration, @StateContent)";
+                await connection.ExecuteScalarAsync(sql, content);
+
+                connection.Close();
+                return JsonSerializer.Serialize("Created");
+            }
+            else
+            {
+
+                throw new ArgumentException("No puedes ingresar un tipo de contenido diferente entre el rango 1 y 3");
+
+            }
+          
 		}
 
 		public async Task<string> DeleteContentAsync(string idContent)
@@ -126,13 +139,12 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 				throw new ArgumentException("Content not found");
 			}
 
-			var query = $"UPDATE {_tableNameContents} SET courseID = @CourseID, title = @Title, description = @Description, deliveryField = @DeliveryField," +
+			var query = $"UPDATE {_tableNameContents} SET courseID = @CourseID, title = @Title, description = @Description, " +
 				$" type = @Type, duration = @Duration, stateContent = @StateContent WHERE contentID = @ContentId";
 
 			entityToUpdate.SetCourseID(content.CourseID);
 			entityToUpdate.SetTitle(content.Title);
 			entityToUpdate.SetDescription(content.Description);
-			entityToUpdate.SetDeliveryField(content.DeliveryField);
 			entityToUpdate.SetType(content.Type);
 			entityToUpdate.SetDuration(content.Duration);
 			entityToUpdate.SetStateContent(content.StateContent);
