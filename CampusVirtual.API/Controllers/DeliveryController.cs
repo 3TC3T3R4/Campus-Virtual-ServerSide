@@ -54,5 +54,12 @@ namespace CampusVirtual.API.Controllers
         {
             return await _deliveryUseCase.QualifyDelivery(qualifyDelivery);
         }
+
+        //GetDeliveriesByPathId
+        [HttpGet("ByPathId/")]
+        public async Task<List<Delivery>> GetDeliveriesByPathId(string pathID)
+        {
+            return await _deliveryUseCase.GetDeliveriesByPathId(pathID);
+        }
     }
 }

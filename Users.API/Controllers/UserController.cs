@@ -32,7 +32,7 @@ namespace Users.API.Controllers
         }
 
         [HttpGet("User/")]
-        public async Task<User> GetUserById(Object Id)
+        public async Task<User> GetUserById(string Id)
         {
             return await _userUseCase.GetUserById(Id);
         }

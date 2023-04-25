@@ -30,7 +30,7 @@ namespace Users.UseCases.UseCases
             return await _userRepository.GetUsers();
         }
 
-        public async Task<User> GetUserById(object id)
+        public async Task<User> GetUserById(string id)
         {
             return await _userRepository.GetUserById(id);
         }

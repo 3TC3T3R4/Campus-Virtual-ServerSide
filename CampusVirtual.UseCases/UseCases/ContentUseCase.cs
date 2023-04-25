@@ -38,5 +38,10 @@ namespace CampusVirtual.UseCases.UseCases
 		{
 			return await _contentRepository.GetContentByIdAsync(idContent);
 		}
+
+		public async Task<List<ContentWithDelivery>> GetContentByCourseIdAsync(string courseId)
+		{
+			return await _contentRepository.GetContentByCourseIdAsync(courseId);
+		}
 	}
 }

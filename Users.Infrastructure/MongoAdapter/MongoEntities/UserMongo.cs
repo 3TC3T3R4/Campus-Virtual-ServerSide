@@ -11,7 +11,7 @@ namespace Users.Infrastructure.MongoAdapter.MongoEntities
     {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public Object Id { get; set; }
+        public string Id { get; set; }
         public string uidUser { get; set; }
         public string email { get; set; }
         public string password { get; set; }
