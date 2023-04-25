@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ardalis.GuardClauses;
 using AutoMapper;
 using MongoDB.Driver;
 using Users.Domain.Commands;
@@ -26,13 +27,33 @@ namespace Users.Infrastructure.MongoAdapter.Repositories
 
         public async Task<string> CreateUser(CreateUser user)
         {
+            Guard.Against.Null(user, nameof(user), "User is null");
+            Guard.Against.Null(user.uidUser, nameof(user.uidUser), "uidUser is null");
+            Guard.Against.Null(user.email, nameof(user.email), "email is null");
+            Guard.Against.Null(user.password, nameof(user.password), "password is null");
+            Guard.Against.Null(user.role, nameof(user.role), "role is null");
+
+            // Verificar si el uidUser ya existe
+            var existingUser = await GetUserById(user.uidUser);
+            if (existingUser != null)
+            {
+                return "uidUser already exists";
+            }
+
             await _collection.InsertOneAsync(_mapper.Map<UserMongo>(user));
             return "User Created";
         }
 
-        public async Task<User> GetUserById(object id)
+        public async Task<User> GetUserById(string uid)
         {
-            var user = await _collection.FindAsync(x => x.Id == id.ToString());
+            Guard.Against.NullOrEmpty(uid, nameof(uid), "Uid is null or empty");
+
+            var user = await _collection.FindAsync(x => x.uidUser == uid.ToString());
+            if (user == null)
+            {
+                throw new ArgumentException($"User with uid {uid} does not exist");
+            }
+
             var userList = user.ToEnumerable().Select(x => _mapper.Map<User>(x)).ToList();
             return userList.FirstOrDefault();
         }
@@ -41,6 +62,10 @@ namespace Users.Infrastructure.MongoAdapter.Repositories
         {
             var users = await _collection.FindAsync(Builders<UserMongo>.Filter.Empty);
             var userList = users.ToEnumerable().Select(x => _mapper.Map<User>(x)).ToList();
+            if (userList.Count == 0)
+            {
+                throw new Exception("No users found.");
+            }
             return userList;
         }
     }

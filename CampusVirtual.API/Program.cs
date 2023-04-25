@@ -26,6 +26,9 @@ builder.Services.AddScoped<IContentUseCase, ContentUseCase>();
 builder.Services.AddScoped<IContentRepository, ContentRepository>();
 builder.Services.AddScoped<IRegistrationUseCases, RegistrationUseCases>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
+builder.Services.AddScoped<ILearningPathUseCase, LearningPathUseCase>();
+builder.Services.AddScoped<ILearningPathRepository, LearningPathRepository>();
+
 
 builder.Services.AddTransient<IDbConnectionBuilder>(e =>
 {

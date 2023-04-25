@@ -43,5 +43,10 @@ namespace CampusVirtual.UseCases.UseCases
         {
             return await _deliveryRepository.QualifyDelivery(qualifyDelivery);
         }
+
+        public async Task<List<Delivery>> GetDeliveriesByPathId(string pathId)
+        {
+            return await _deliveryRepository.GetDeliveriesByPathId(pathId);
+        }
     }
 }

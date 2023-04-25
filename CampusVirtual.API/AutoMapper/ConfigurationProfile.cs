@@ -5,6 +5,8 @@ using CampusVirtual.Domain.Commands.Content;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Domain.Commands.Registration;
 using CampusVirtual.Domain.Entities;
+using CampusVirtual.Domain.Commands.LearningPath;
+using CampusVirtual.Domain.Entities;
 
 namespace CampusVirtual.API.AutoMapper
 {
@@ -21,7 +23,10 @@ namespace CampusVirtual.API.AutoMapper
 
 			#region Learning paths
 
-			#endregion
+            CreateMap<InsertNewLearningPath, LearningPath>().ReverseMap();
+
+            #endregion
+			
 
             CreateMap<NewCourse, Courses>().ReverseMap();
 			#region Courses
