@@ -1,16 +1,9 @@
-﻿using Ardalis.GuardClauses;
-using AutoMapper;
+﻿using AutoMapper;
 using CampusVirtual.Domain.Commands.Courses;
 using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -18,7 +11,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
     {
         private readonly IDbConnectionBuilder _dbConnectionBuilder;
 
-        private readonly string _tableNameCourses = "Courses";       
+        private readonly string _tableNameCourses = "Courses";
 
         private readonly IMapper _mapper;
 
@@ -53,7 +46,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var result = await connection.ExecuteScalarAsync(sqlQuery, courseToCreate);
             connection.Close();
             return _mapper.Map<NewCourse>(courseToCreate);
-        }       
+        }
 
         public async Task<Courses> GetCourseByIdAsync(Guid id)
         {
@@ -76,14 +69,14 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-            string sqlQuery = $"UPDATE {_tableNameCourses} SET StateCourse = 0 WHERE CourseID = @CourseID";
+            string sqlQuery = $"UPDATE {_tableNameCourses} SET StateCourse = 3 WHERE CourseID = @CourseID";
 
             var result = await connection.ExecuteAsync(sqlQuery, new { CourseID = id });
 
             connection.Close();
 
             if (result == 0)
-            {                
+            {
                 return null;
             }          
 

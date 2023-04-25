@@ -1,5 +1,6 @@
 using AutoMapper.Data;
 using CampusVirtual.API.AutoMapper;
+using CampusVirtual.API.Middlewares;
 using CampusVirtual.Infrastructure.SQLAdapter;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.Infrastructure.SQLAdapter.Repositories;
@@ -23,6 +24,11 @@ builder.Services.AddScoped<IDeliveryUseCase, DeliveryUseCase>();
 builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
 builder.Services.AddScoped<IContentUseCase, ContentUseCase>();
 builder.Services.AddScoped<IContentRepository, ContentRepository>();
+builder.Services.AddScoped<IRegistrationUseCases, RegistrationUseCases>();
+builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
+builder.Services.AddScoped<ILearningPathUseCase, LearningPathUseCase>();
+builder.Services.AddScoped<ILearningPathRepository, LearningPathRepository>();
+
 
 builder.Services.AddTransient<IDbConnectionBuilder>(e =>
 {
@@ -41,6 +47,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ErrorHandleMiddleware>();
 
 app.MapControllers();
 

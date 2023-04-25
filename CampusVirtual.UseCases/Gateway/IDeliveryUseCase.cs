@@ -15,5 +15,6 @@ namespace CampusVirtual.UseCases.Gateway
         Task<Delivery> GetDeliveryById(int deliveryId);
         Task<List<Delivery>> GetDeliveriesByUidUser(string uidUser);
         Task<string> QualifyDelivery(QualifyDelivery qualifyDelivery);
+        Task<List<Delivery>> GetDeliveriesByPathId(string pathId);
     }
 }

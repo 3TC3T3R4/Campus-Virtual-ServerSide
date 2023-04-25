@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {}
+    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
+    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
         "projectName": "Users.Domain",
-        "projectPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
-        "packagesPath": "C:\\Users\\Rolando\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rolando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,21 +55,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
+    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
         "projectName": "Users.UseCases",
-        "projectPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
-        "packagesPath": "C:\\Users\\Rolando\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\",
+        "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rolando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-                "projectPath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
+              "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
+                "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
               }
             }
           }
@@ -114,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

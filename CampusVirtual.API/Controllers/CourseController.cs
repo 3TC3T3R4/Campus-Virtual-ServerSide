@@ -32,7 +32,7 @@ namespace CampusVirtual.API.Controllers
         public async Task<List<Courses>> GetCoursesByPathIdAsync([FromQuery] Guid id)
         {
             return await _courseUseCase.GetCoursesByPathIdAsync(id);
-        }       
+        }
 
         [HttpGet]
         [Route("GetCourseById")]
