@@ -8,7 +8,7 @@ namespace CampusVirtual.Domain.Commands.Courses
 {
     public class UpdateDuration
     {
-        public Guid PathID { get; set; }
+        public Guid CourseID { get; set; }
         public Decimal Duration { get; set; }
     }
 }
