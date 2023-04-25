@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "HmwFIDnB9N/GV9GvyJ40tvqtyTlX/2Dwz7G2PnJGD7hVjo+rH+GmekTBrQcMHM0ctaNI9NroyoFEeE+uau6dYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
+=======
+  "dgSpecHash": "ARg2wHO6XZ35/oh4705t1/misG7JzHLQE0mKdfT2DWXD1XMHyG9pEkaKjol7AKQ4AtQ3Le1VmAOQEso0zGV6Rw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
+>>>>>>> da7cf54daf682f850176445ca84c8afd6e6fd1e1
   "expectedPackageFiles": [],
   "logs": []
 }
