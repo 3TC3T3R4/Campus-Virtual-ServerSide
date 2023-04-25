@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "p3Ev9g1uVx+dqP6hyLmEZv2rVhPgGEbnzGs18jaFcWORJA7FZG1CiDXEk9cnXnr+AzIe9aShTBxKbyFgcYKeyA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
-=======
-  "dgSpecHash": "ARg2wHO6XZ35/oh4705t1/misG7JzHLQE0mKdfT2DWXD1XMHyG9pEkaKjol7AKQ4AtQ3Le1VmAOQEso0zGV6Rw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
->>>>>>> da7cf54daf682f850176445ca84c8afd6e6fd1e1
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\Rolando\\Desktop\\FullStackBackCampus\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
