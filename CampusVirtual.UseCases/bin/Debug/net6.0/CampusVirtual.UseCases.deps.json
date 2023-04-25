@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CampusVirtual.UseCases/1.0.0": {
+        "dependencies": {
+          "CampusVirtual.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CampusVirtual.UseCases.dll": {}
+        }
+      },
+      "CampusVirtual.Domain/1.0.0": {
+        "runtime": {
+          "CampusVirtual.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CampusVirtual.UseCases/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CampusVirtual.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
