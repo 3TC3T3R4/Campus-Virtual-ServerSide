@@ -49,7 +49,7 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<Courses> DeleteCourseAsync(string id)
+        public async Task<string> DeleteCourseAsync(string id)
         {
             return await _courseUseCase.DeleteCourseAsync(id);
         }
@@ -59,7 +59,16 @@ namespace CampusVirtual.API.Controllers
         public async Task<Courses> UpdateDurationAsync(UpdateDuration updateDuration)
         {
             return await _courseUseCase.UpdateDurationAsync(updateDuration);
+        }        
+
+        [HttpPatch]
+        [Route("ConfigureToPath")]
+
+        public async Task<Courses> ConfigureToPathAsync(AssingToPath assingToPath)
+        {
+            return await _courseUseCase.ConfigureToPathAsync(assingToPath);
         }
+
 
     }
 }
