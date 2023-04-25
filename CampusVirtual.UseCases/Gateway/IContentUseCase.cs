@@ -10,5 +10,6 @@ namespace CampusVirtual.UseCases.Gateway
 		Task<string> DeleteContentAsync(string idContent);
 		Task<List<ContentWithDeliveries>> GetContentsAsync();
 		Task<ContentWithDelivery> GetContentByIdAsync(string idContent);
+		Task<List<ContentWithDelivery>> GetContentByCourseIdAsync(string courseId);
 	}
 }

@@ -1,8 +1,20 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "ICq/ifK1yYJod9L05kqKg2U7hl5DA/poOa+o2JJDyUdSc8Q39hkndxkmF5YvnGAZ+l1Ro79Gqjm9/O2u21bk9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "q8U8+x/qRB+nL+7eEDTVKKJNooiQYKmYOMg1sejIVnyEtPTYvFe/9SBpkK/rhK/OQ/l3X9hOXlI29gQ1MC51fA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+=======
+  "dgSpecHash": "r161sr+rsNFMYVGsx9iOqRPYFjsKPVKNCtpMasq3LLnWpYBZVykH8gaxWzoOw/9fbfdsoliZzLq1I5Xx/Rn6wg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\57318\\Desktop\\Liga Sofka\\Campus virtual\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
+>>>>>>> e2d4a8b1aa58855a5260efdbebd444bcc197faac
+>>>>>>> 402a4e7fcab3d937cbb63c18ce821fdc58d87d21
   "expectedPackageFiles": [],
   "logs": []
 }
