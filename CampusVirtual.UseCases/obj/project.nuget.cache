@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "zfVbCcdZgS2gMfGtzi0bPXv4WC11zN2+9+c0N5RG6ay6t1kQ4Akpz0/0lUX+0ib1B4IBPQqoApAnr2SXFSKV5g==",
+  "dgSpecHash": "C0Pk+DhyGkMC2Ri/jcZIf48TMyRVeAzni90jv+eIgrqXSzbRxX4eGoB91WSDYrQG2iH1tizzL5q5rwNSXDac3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\melim\\OneDrive\\Escritorio\\RETOFINAL_CAMPUS\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
+  "projectFilePath": "C:\\Users\\melim\\OneDrive\\Imágenes\\RETOFINAL_SOFKAU\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\melim\\OneDrive\\Imágenes\\RETOFINAL_SOFKAU\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

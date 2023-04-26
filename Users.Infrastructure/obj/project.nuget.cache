@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LZdtG2vtGEpUxj8qEFbZEgY7SFd3boy83Q/OIkC8Lfbki5xRelwaz3BJmvA0VY+112P4RWml6zWbdSJ48XgT/w==",
+  "dgSpecHash": "J1t4lbUtQXTNjZCvJoUE4bpT89bUnyVP6aOk8//SRPTQDV5HgNaq6NymxVfTRK43PYksJTO+bOMxpW9q+YOxiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\melim\\OneDrive\\Escritorio\\RETOFINAL_CAMPUS\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\melim\\OneDrive\\Imágenes\\RETOFINAL_SOFKAU\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\melim\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
     "C:\\Users\\melim\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
@@ -26,5 +26,12 @@
     "C:\\Users\\melim\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\melim\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\melim\\OneDrive\\Imágenes\\RETOFINAL_SOFKAU\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
