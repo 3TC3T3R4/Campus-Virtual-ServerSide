@@ -1,19 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "p4Kv8bgrEUjpOyDjc+3ECKWXRjzdgop6o6Vi/MxyP92zGxKDohSR+3R5NK6Hl8AjozkZDs6WE8n1sHScXuuXeA==",
+  "dgSpecHash": "DqQGkC4bB5q1MkWj3BxkutPKd7X5M5wgDn8eORfuFW+lJqGS6D2Cfo9yfYu2XL6Oh+ZmpzznZ8TfWQ+FZ2cVLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
+  "projectFilePath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
   "expectedPackageFiles": [],
-<<<<<<< HEAD
-  "logs": []
-=======
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 7, position 0."
     }
   ]
->>>>>>> 15c092ad638b7b887d0f0e6c735c4b52c16dc627
 }
