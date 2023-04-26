@@ -16,8 +16,6 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 	{
 		private readonly IDbConnectionBuilder _dbConnectionBuilder;
 		private readonly string _tableNameContents = "Contents";
-		private readonly string _tableNameDeliveries = "Deliveries";
-		private readonly string _tableNameCourses = "Courses";
 
 		private readonly IMapper _mapper;
 
@@ -33,38 +31,54 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 			Guard.Against.NullOrEmpty(content.CourseID, nameof(content.CourseID));
 			Guard.Against.NullOrEmpty(content.Title, nameof(content.Title));
 			Guard.Against.NullOrEmpty(content.Description, nameof(content.Description));
-			Guard.Against.NullOrEmpty(content.DeliveryField, nameof(content.DeliveryField));
 			Guard.Against.NullOrEmpty(content.Type.ToString(), nameof(content.Type));
-			Guard.Against.NullOrEmpty(content.Duration.ToString(), nameof(content.Type));
+			Guard.Against.NullOrEmpty(content.Duration.ToString(), nameof(content.Duration));
 
 			Content.SetDetailsContentEntity(content);
 
-			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			//var sqlAccount = $"SELECT * FROM {_tableNameCourses} WHERE CourseID = {content.CourseID}";
-			//var accountToUpdate = await connection.QuerySingleAsync<Course>(sqlAccount) ?? throw new Exception("The course doesn't exist");
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, deliveryField, type, duration, stateContent) " +
-				$"VALUES (@CourseID, @Title, @Description, @DeliveryField, @Type, @Duration, @StateContent);";
-			var result = await connection.ExecuteScalarAsync(sql, content);
-			connection.Close();
-			return JsonSerializer.Serialize("Created");
+			Content.SetDetailsContentEntity(content);
 
+            if (content.Type >= TypeContent.Workshop && content.Type <= TypeContent.Challenge)
+            {
+               
+                var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, type, duration, stateContent) " +
+                          $"VALUES (@CourseID, @Title, @Description, @Type, @Duration, @StateContent)";
+                await connection.ExecuteScalarAsync(sql, content);
+
+                connection.Close();
+                return JsonSerializer.Serialize("Created");
+            }
+            else
+            {
+
+                throw new ArgumentException("No puedes ingresar un tipo de contenido diferente entre el rango 1 y 3");
+
+            }
+          
 		}
 
 		public async Task<string> DeleteContentAsync(string idContent)
 		{
 			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+			var queryId = $"SELECT * FROM {_tableNameContents} WHERE contentID = @Id AND stateContent = 1";
+
+			var parseId = new { Id = Guid.Parse(idContent) };
+
+			var entityToDelete = await connection.QueryFirstOrDefaultAsync<Content>(queryId, parseId);
+
+			if (entityToDelete == null)
+			{
+				throw new ArgumentException("Content not found");
+			}
 
 			var query = $"UPDATE {_tableNameContents} SET stateContent = @StateContent WHERE contentID = @ContentId";
 
-			var parameters = new
-			{
-				StateContent = Enums.StateContent.Deleted,
-				ContentId = Guid.Parse(idContent)
-			};
+			entityToDelete.SetStateContent(Enums.StateContent.Deleted);
 
-			await connection.ExecuteScalarAsync(query, parameters);
+			await connection.ExecuteScalarAsync(query, entityToDelete);
 
 			connection.Close();
 			return JsonSerializer.Serialize("Deleted");
@@ -74,48 +88,94 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 		{
 			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			string query = $"SELECT * FROM {_tableNameContents} WHERE contentID = @Id";
+			string query = $"SELECT * FROM {_tableNameContents} WHERE contentID = @Id AND stateContent = 1";
 			var parameters = new { Id = Guid.Parse(idContent) };
 
-			var resultado = await connection.QueryFirstOrDefaultAsync<ContentWithDelivery>(query, parameters);
+			var result = await connection.QueryFirstOrDefaultAsync<ContentWithDelivery>(query, parameters);
+
+			if (result == null)
+			{
+				throw new ArgumentException("Content not found");
+			}
 
 			connection.Close();
-			return resultado;
+			return result;
 		}
 
 		public async Task<List<ContentWithDeliveries>> GetContentsAsync()
 		{
 			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			string query = $"SELECT * FROM {_tableNameContents}";
-			var resultado = await connection.QueryAsync<ContentWithDeliveries>(query);
+			string query = $"SELECT * FROM {_tableNameContents} WHERE stateContent = 1";
+			var result = await connection.QueryAsync<ContentWithDeliveries>(query);
+
+			if (result == null)
+			{
+				throw new ArgumentException("Content not found");
+			}
 
 			connection.Close();
-			return resultado.ToList();
+			return result.ToList();
 		}
 
 		public async Task<string> UpdateContentAsync(string idContent, Content content)
 		{
-			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+			Guard.Against.Null(content, nameof(content));
+			Guard.Against.NullOrEmpty(content.CourseID, nameof(content.CourseID));
+			Guard.Against.NullOrEmpty(content.Title, nameof(content.Title));
+			Guard.Against.NullOrEmpty(content.Description, nameof(content.Description));
+			Guard.Against.NullOrEmpty(content.Type.ToString(), nameof(content.Type));
+			Guard.Against.NullOrEmpty(content.Duration.ToString(), nameof(content.Duration));
 
-			var query = $"UPDATE {_tableNameContents} SET courseID = @CourseID, title = @Title, description = @Description, deliveryField = @DeliveryField," +
+			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+			var queryId = $"SELECT * FROM {_tableNameContents} WHERE contentID = @Id AND stateContent = 1";
+
+			var parseId = new { Id = Guid.Parse(idContent) };
+
+			var entityToUpdate = await connection.QueryFirstOrDefaultAsync<Content>(queryId, parseId);
+
+			if (entityToUpdate == null)
+			{
+				throw new ArgumentException("Content not found");
+			}
+
+			var query = $"UPDATE {_tableNameContents} SET courseID = @CourseID, title = @Title, description = @Description, " +
 				$" type = @Type, duration = @Duration, stateContent = @StateContent WHERE contentID = @ContentId";
 
-			var parameters = new { 
-				CourseID = content.CourseID, 
-				Title = content.Title,
-				Description = content.Description, 
-				DeliveryField = content.DeliveryField,
-				Type = content.Type,
-				Duration = content.Duration,
-				StateContent = content.StateContent,
-				ContentId = Guid.Parse(idContent)
-			};
+			entityToUpdate.SetCourseID(content.CourseID);
+			entityToUpdate.SetTitle(content.Title);
+			entityToUpdate.SetDescription(content.Description);
+			entityToUpdate.SetType(content.Type);
+			entityToUpdate.SetDuration(content.Duration);
+			entityToUpdate.SetStateContent(content.StateContent);
+			entityToUpdate.SetContentID(Guid.Parse(idContent));
 
-			await connection.ExecuteScalarAsync(query, parameters);
+			await connection.ExecuteScalarAsync(query, entityToUpdate);
 
 			connection.Close();
 			return JsonSerializer.Serialize("Updated");
 		}
+
+
+		public async Task<List<ContentWithDelivery>> GetContentByCourseIdAsync(string courseId)
+		{
+			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+			string query = $"SELECT * FROM {_tableNameContents} WHERE courseID = @Id AND stateContent = 1";
+			var parameters = new { Id = Guid.Parse(courseId) };
+
+			var result = await connection.QueryAsync<ContentWithDelivery>(query, parameters);
+
+			if (result.Count() == 0)
+			{
+				throw new ArgumentException("Content not found");
+			}
+
+			connection.Close();
+			return result.ToList();
+		}
+
+
+
 	}
 }

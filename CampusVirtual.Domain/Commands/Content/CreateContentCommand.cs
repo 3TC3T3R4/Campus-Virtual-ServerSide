@@ -15,8 +15,6 @@ namespace CampusVirtual.Domain.Commands.Content
 
 		public string Description { get; set; }
 
-		public string DeliveryField { get; set; }
-
 		public Enums.TypeContent Type { get; set; }
 
 		public decimal Duration { get; set; }
