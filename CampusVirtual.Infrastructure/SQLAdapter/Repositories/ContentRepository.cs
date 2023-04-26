@@ -36,15 +36,28 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
 			Content.SetDetailsContentEntity(content);
 
-			var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, type, duration, stateContent) " +
-				$"VALUES (@CourseID, @Title, @Description, @Type, @Duration, @StateContent);";
-			await connection.ExecuteScalarAsync(sql, content);
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-			connection.Close();
-			return JsonSerializer.Serialize("Created");
+			Content.SetDetailsContentEntity(content);
 
+            if (content.Type >= TypeContent.Workshop && content.Type <= TypeContent.Challenge)
+            {
+               
+                var sql = $"INSERT INTO {_tableNameContents} (courseID, title, description, type, duration, stateContent) " +
+                          $"VALUES (@CourseID, @Title, @Description, @Type, @Duration, @StateContent)";
+                await connection.ExecuteScalarAsync(sql, content);
+
+                connection.Close();
+                return JsonSerializer.Serialize("Created");
+            }
+            else
+            {
+
+                throw new ArgumentException("No puedes ingresar un tipo de contenido diferente entre el rango 1 y 3");
+
+            }
+          
 		}
 
 		public async Task<string> DeleteContentAsync(string idContent)

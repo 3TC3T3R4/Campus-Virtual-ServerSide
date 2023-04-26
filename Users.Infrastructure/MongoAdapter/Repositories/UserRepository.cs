@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Ardalis.GuardClauses;
 using AutoMapper;
 using MongoDB.Driver;
@@ -32,9 +28,19 @@ namespace Users.Infrastructure.MongoAdapter.Repositories
             Guard.Against.Null(user.email, nameof(user.email), "email is null");
             Guard.Against.Null(user.password, nameof(user.password), "password is null");
             Guard.Against.Null(user.role, nameof(user.role), "role is null");
+            Guard.Against.OutOfRange(user.role, nameof(user.role), 1,2);
 
-            // Verificar si el uidUser ya existe
-            var existingUser = await GetUserById(user.uidUser);
+			if (user.email.Length < 4)
+            {
+                return "Incorrect format";
+            }
+			if (user.password.Length < 7)
+			{
+				return "Incorrect format";
+			}
+
+			// Verificar si el uidUser ya existe
+			var existingUser = await GetUserById(user.uidUser);
             if (existingUser != null)
             {
                 return "uidUser already exists";

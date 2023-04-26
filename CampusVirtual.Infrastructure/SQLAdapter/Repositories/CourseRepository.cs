@@ -163,29 +163,40 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             var courseToAssing = await GetCourseByIdAsync(assingToPath.CourseID);
 
-            Guard.Against.Null(courseToAssing, nameof(courseToAssing));            
+            Guard.Against.Null(courseToAssing, nameof(courseToAssing));
 
-            if (courseToAssing.PathID == null)
+            string sqlQuery = "";
+            if (courseToAssing.PathID == Guid.Empty)
             {
                 courseToAssing.PathID = assingToPath.PathID;
+                sqlQuery = $"UPDATE {_tableNameCourses} SET pathID = @PathID, stateCourse = 2 WHERE CourseID = @CourseID";
             }
             else
             {
                 if(courseToAssing.PathID == assingToPath.PathID)
                 {
-                    courseToAssing.PathID = Guid.Empty;
+                    sqlQuery = $"UPDATE {_tableNameCourses} SET pathID = NULL, stateCourse = 1 WHERE CourseID = @CourseID";
                 }
             }
 
-
-            string sqlQuery = $"UPDATE {_tableNameCourses} SET pathID = @PathID WHERE CourseID = @CourseID";
-
             var result = await connection.ExecuteScalarAsync(sqlQuery, courseToAssing);
 
+            var courseConfigured = await GetCourseByIdAsync(assingToPath.CourseID);
+            connection.Close();
+            return _mapper.Map<Courses>(courseConfigured);
+        }
+
+        public async Task<List<Courses>> GetActiveCoursesAsync()
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+            var activeCourses = await connection.QueryAsync<Courses>($"SELECT * FROM {_tableNameCourses} WHERE StateCourse = 1");
             connection.Close();
 
-            return _mapper.Map<Courses>(courseToAssing);
+            return activeCourses.Count() == 0
+                ? _mapper.Map<List<Courses>>(Guard.Against.NullOrEmpty(activeCourses, nameof(activeCourses),
+                    $"There are no courses available."))
+                : activeCourses.ToList();
         }
-       
     }
 }
