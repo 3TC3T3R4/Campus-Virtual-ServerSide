@@ -28,8 +28,9 @@ namespace Users.Infrastructure.MongoAdapter.Repositories
             Guard.Against.Null(user.email, nameof(user.email), "email is null");
             Guard.Against.Null(user.password, nameof(user.password), "password is null");
             Guard.Against.Null(user.role, nameof(user.role), "role is null");
-            
-            if(user.email.Length < 4)
+            Guard.Against.OutOfRange(user.role, nameof(user.role), 1,2);
+
+			if (user.email.Length < 4)
             {
                 return "Incorrect format";
             }
