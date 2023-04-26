@@ -21,7 +21,7 @@ namespace CampusVirtual.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
+        [HttpPost("CreateCourse")]
         public async Task<NewCourse> CreateCourseAsync([FromBody] NewCourse newCourse)
         {
             return await _courseUseCase.CreateCourseAsync(_mapper.Map<Courses>(newCourse));
@@ -48,7 +48,7 @@ namespace CampusVirtual.API.Controllers
             return await _courseUseCase.GetCourseByIdAsync(id);
         }
 
-        [HttpPut]
+        [HttpPut("UpdateCourse")]
         public async Task<Courses> UpdateCourseAsync(UpdateCourse updateCourse)
         {
             return await _courseUseCase.UpdateCourseAsync(updateCourse);
