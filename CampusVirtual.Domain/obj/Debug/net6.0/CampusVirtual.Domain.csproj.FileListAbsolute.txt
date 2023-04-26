@@ -1,0 +1,12 @@
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\bin\Debug\net6.0\CampusVirtual.Domain.deps.json
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\bin\Debug\net6.0\CampusVirtual.Domain.dll
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\bin\Debug\net6.0\CampusVirtual.Domain.pdb
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\CampusVirtual.Domain.csproj.AssemblyReference.cache
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\CampusVirtual.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\CampusVirtual.Domain.AssemblyInfoInputs.cache
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\CampusVirtual.Domain.AssemblyInfo.cs
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\CampusVirtual.Domain.csproj.CoreCompileInputs.cache
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\CampusVirtual.Domain.dll
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\refint\CampusVirtual.Domain.dll
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\CampusVirtual.Domain.pdb
+C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\CampusVirtual.Domain\obj\Debug\net6.0\ref\CampusVirtual.Domain.dll
