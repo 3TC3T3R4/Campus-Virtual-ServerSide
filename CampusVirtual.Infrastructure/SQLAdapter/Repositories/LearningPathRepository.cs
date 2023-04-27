@@ -104,13 +104,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.Null(path.Description , nameof(path.Description), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(path.Description, nameof(path.Description), "Ingresa por favor el id  no puede ser vacio o nulo");
 
-            Guard.Against.Null(path.Duration, nameof(path.Duration), "Ingresa el campo por favor");
-            Guard.Against.NullOrEmpty(path.Duration.ToString(), nameof(path.Duration), "Ingresa por favor el id  no puede ser vacio o nulo");
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"UPDATE {_tableNameLearningPaths} " +
-                $"SET coachID = @coachID, title = @title, description = @description, " +
-                $"duration = @duration, statePath = @statePath WHERE pathID = '{idPath}'";
+                $"SET coachID = @coachID, title = @title, description = @description  WHERE pathID = '{idPath}'";
             var rows = await connection.ExecuteAsync(sqlQuery, path);
             return _mapper.Map<LearningPath>(path);
         }
