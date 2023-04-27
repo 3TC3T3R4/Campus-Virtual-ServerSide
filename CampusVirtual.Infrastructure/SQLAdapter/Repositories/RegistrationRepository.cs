@@ -157,13 +157,13 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var registrationFound = await GetRegistrationByUidUserAndPathIDAsync(uidUser, pathID);
             Guard.Against.Null(registrationFound, nameof(registrationFound), $"There is no a registration available.");
 
-            var query = $"SELECT d.rating " +
+            var query = $"SELECT DISTINCT d.rating " +
                         $"FROM Registrations re " +
                         $"INNER JOIN LearningPaths lp ON re.pathID = lp.pathID " +
                         $"INNER JOIN Courses c ON lp.pathID = c.pathID " +
                         $"INNER JOIN Contents ct ON ct.courseID = c.courseID " +
                         $"INNER JOIN Deliveries d ON ct.contentID = d.contentID " +
-                        $"WHERE re.uidUser = '{uidUser}' " +
+                        $"WHERE d.uidUser = '{uidUser}' " +
                         $"AND d.rating IS NOT NULL";
 
             var ratingsFound = (from rating in await connection.QueryAsync<decimal>(query) select rating).ToList();
