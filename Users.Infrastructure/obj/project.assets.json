@@ -1058,7 +1058,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 29, position 0."
+      "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'logs[0].warningLevel', line 34, position 0."
     }
   ]
 }
