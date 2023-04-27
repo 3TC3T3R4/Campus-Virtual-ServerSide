@@ -10,3 +10,15 @@ C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\Us
 C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\refint\Users.Domain.dll
 C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.pdb
 C:\Users\melim\OneDrive\Escritorio\RETOFINAL_CAMPUS\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\ref\Users.Domain.dll
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\bin\Debug\net6.0\Users.Domain.deps.json
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\bin\Debug\net6.0\Users.Domain.dll
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\bin\Debug\net6.0\Users.Domain.pdb
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.csproj.AssemblyReference.cache
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.AssemblyInfoInputs.cache
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.AssemblyInfo.cs
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.csproj.CoreCompileInputs.cache
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.dll
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\refint\Users.Domain.dll
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\Users.Domain.pdb
+C:\Users\melim\OneDrive\Imágenes\RETOFINAL_SOFKAU\Campus-Virtual-ServerSide\Users.Domain\obj\Debug\net6.0\ref\Users.Domain.dll
