@@ -5,6 +5,7 @@ using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
+using System.Text.Json;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -71,10 +72,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                                                 $"VALUES (@UidUser, @PathID, @CreatedAt, @FinalRating, @StateRegistration)",
                                                 registration);
                 connection.Close();
-                return "The registration was created successfully.";
+                return JsonSerializer.Serialize("The registration was created successfully.");
             }
             connection.Close();
-            return "The registration was no created";
+            return JsonSerializer.Serialize("The registration was no created.");
         }
 
         public async Task<string> DeleteRegistrationAsync(int registrationID)
@@ -97,10 +98,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                                                     RegistrationID = registrationID
                                                 });
                 connection.Close();
-                return "The registration was deleted successfully.";
+                return JsonSerializer.Serialize("The registration was deleted successfully.");
             }
             connection.Close();
-            return "The registration was not found.";
+            return JsonSerializer.Serialize("The registration was not found.");
         }
 
         public async Task<List<Registration>> GetAllRegistrationsAsync()

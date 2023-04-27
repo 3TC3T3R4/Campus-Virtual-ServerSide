@@ -1,27 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "282oA9SeQ7YC4Hh9XXj1L9sG6kg5vP1UoeFw4XEp7BFZzG+EUDJjz3mn49Qww/pTMNgkQAllRIlODXaasN2EDw==",
+  "dgSpecHash": "7rV4P+eYf6QGcjx55cbXao6v/xyGKXXk4PEmT+sX/Q8nG1rdLfA3sSezzZcE8cxz83cdXMjCzNG3WgJohgdjMw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
-      "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 7, position 0."
-=======
-      "message": "Problema al leer el archivo de caché C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 7, position 0."
->>>>>>> 29d6989d608f115b0383d9392229923244fd4684
+      "message": "Problema al leer el archivo de caché C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
-=======
-  "dgSpecHash": "7rV4P+eYf6QGcjx55cbXao6v/xyGKXXk4PEmT+sX/Q8nG1rdLfA3sSezzZcE8cxz83cdXMjCzNG3WgJohgdjMw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.UseCases\\CampusVirtual.UseCases.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
 }
