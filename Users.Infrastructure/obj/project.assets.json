@@ -969,37 +969,24 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\HOME\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\kevin\\.nuget\\packages\\": {}
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
       "projectName": "Users.Infrastructure",
       "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
-      "projectName": "Users.Infrastructure",
-      "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1007,25 +994,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
               "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
             },
             "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
               "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
-=======
-            "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-              "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
-            },
-            "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
-              "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
             }
           }
         }
@@ -1069,28 +1049,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-<<<<<<< HEAD
   },
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
-      "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'logs[0].warningLevel', line 34, position 0."
-=======
-<<<<<<< HEAD
-      "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 29, position 0."
-=======
-      "message": "Problema al leer el archivo de caché C:\\Users\\juans\\Desktop\\Programacion\\FullStack\\CampusVirtualBackend\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 29, position 0."
->>>>>>> 29d6989d608f115b0383d9392229923244fd4684
->>>>>>> 2b7ac101acdc92eb8907f282bfe797f31f6cd7f8
+      "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
-=======
-  }
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
 }

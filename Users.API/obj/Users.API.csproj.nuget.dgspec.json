@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj": {}
   },
   "projects": {
@@ -13,27 +12,13 @@
         "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
         "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.API\\obj\\",
-=======
-    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
-        "projectName": "Users.API",
-        "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
-        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.API\\obj\\",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,13 +26,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
                 "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
               },
@@ -56,16 +41,6 @@
               },
               "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
                 "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
-=======
-              "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-                "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
-              },
-              "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj"
-              },
-              "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
-                "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
               }
             }
           }
@@ -116,11 +91,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -129,24 +103,13 @@
         "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
         "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\",
-=======
-    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
-        "projectName": "Users.Domain",
-        "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj",
-        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\obj\\",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,6 +117,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -187,11 +151,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -200,24 +163,13 @@
         "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
-=======
-    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
-        "projectName": "Users.Infrastructure",
-        "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\Users.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Infrastructure\\obj\\",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -225,25 +177,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
                 "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
               },
               "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
                 "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
-=======
-              "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-                "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
-              },
-              "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
-                "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj"
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
               }
             }
           }
@@ -287,11 +232,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -300,24 +244,13 @@
         "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
         "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\",
-=======
-    "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
-        "projectName": "Users.UseCases",
-        "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
-        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -325,19 +258,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
                 "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
-=======
-              "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj": {
-                "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.Domain\\Users.Domain.csproj"
->>>>>>> 74eb6d5076c2777c428aaaa803d4777823d60bbf
               }
             }
           }
@@ -367,7 +296,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
