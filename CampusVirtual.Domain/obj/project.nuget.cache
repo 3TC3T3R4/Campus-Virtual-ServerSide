@@ -1,15 +1,25 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "HmwFIDnB9N/GV9GvyJ40tvqtyTlX/2Dwz7G2PnJGD7hVjo+rH+GmekTBrQcMHM0ctaNI9NroyoFEeE+uau6dYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
+=======
+  "dgSpecHash": "ZnBsEKEOjr+BSnpJu6iRnBMFE6pC/GL43kZwsVMS3//iwxglivhe2OPGHmaBTAHI7gmn7UEPzfy+Wa6kgERnow==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
   "expectedPackageFiles": [],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\Miguel-PC\\Desktop\\SofkaTraining\\1. Reto Final Training\\proyect\\CampusVirtual.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problema al leer el archivo de caché C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
     }
   ]
 }
