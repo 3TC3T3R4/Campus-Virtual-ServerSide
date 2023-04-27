@@ -1,7 +1,7 @@
-﻿
-using Ardalis.GuardClauses;
+﻿using Ardalis.GuardClauses;
 using AutoMapper;
 using MongoDB.Driver;
+using System.Text.Json;
 using Users.Domain.Commands;
 using Users.Domain.Entities;
 using Users.Infrastructure.MongoAdapter.Interfaces;
@@ -43,23 +43,29 @@ namespace Users.Infrastructure.MongoAdapter.Repositories
 			var existingUser = await GetUserById(user.uidUser);
             if (existingUser != null)
             {
-                return "uidUser already exists";
+                return JsonSerializer.Serialize("uidUser already exists");
             }
 
             await _collection.InsertOneAsync(_mapper.Map<UserMongo>(user));
-            return "User Created";
+            return JsonSerializer.Serialize("User Created");
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            Guard.Against.NullOrEmpty(email, nameof(email), "Email is null or empty");
+
+            var user = await _collection.FindAsync(x => x.email == email)
+                                ?? throw new ArgumentException($"User with email {email} does not exist");
+            var userList = user.ToEnumerable().Select(x => _mapper.Map<User>(x)).ToList();
+            return userList.FirstOrDefault();
         }
 
         public async Task<User> GetUserById(string uid)
         {
             Guard.Against.NullOrEmpty(uid, nameof(uid), "Uid is null or empty");
 
-            var user = await _collection.FindAsync(x => x.uidUser == uid.ToString());
-            if (user == null)
-            {
-                throw new ArgumentException($"User with uid {uid} does not exist");
-            }
-
+            var user = await _collection.FindAsync(x => x.uidUser == uid.ToString()) 
+                                ?? throw new ArgumentException($"User with uid {uid} does not exist");
             var userList = user.ToEnumerable().Select(x => _mapper.Map<User>(x)).ToList();
             return userList.FirstOrDefault();
         }
