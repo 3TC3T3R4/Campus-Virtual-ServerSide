@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CampusVirtual.Domain.Commands.Registration;
 using CampusVirtual.Domain.Entities;
+using CampusVirtual.Domain.Entities.Wrappers.Registration;
 using CampusVirtual.UseCases.Gateway;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +27,7 @@ namespace CampusVirtual.API.Controllers
         }
 
         [HttpGet]
-        public async Task<List<Registration>> GetAllRegistrationsAsync()
+        public async Task<List<RegistrationWithLearningPath>> GetAllRegistrationsAsync()
         {
             return await _registrationUseCases.GetAllRegistrationsAsync();
         }
