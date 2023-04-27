@@ -6,7 +6,7 @@ using Users.UseCases.Gateway;
 
 namespace Users.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController
     {
@@ -25,17 +25,22 @@ namespace Users.API.Controllers
             return await _userUseCase.CreateUser(user);
         }
 
-        [HttpGet("Users/")]
+        [HttpGet("")]
         public async Task<List<User>> GetUsers()
         {
             return await _userUseCase.GetUsers();
         }
 
-        [HttpGet("User/")]
+        [HttpGet("ID")]
         public async Task<User> GetUserById(string Id)
         {
             return await _userUseCase.GetUserById(Id);
         }
 
+        [HttpGet("Email")]
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _userUseCase.GetUserByEmail(email);
+        }
     }
 }
