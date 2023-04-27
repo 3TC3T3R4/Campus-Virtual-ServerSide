@@ -1,15 +1,23 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "DqQGkC4bB5q1MkWj3BxkutPKd7X5M5wgDn8eORfuFW+lJqGS6D2Cfo9yfYu2XL6Oh+ZmpzznZ8TfWQ+FZ2cVLQ==",
+=======
+  "dgSpecHash": "viNpxLkEbBEvCvcYr1OA576+PNtHZ5cR3juW/SxDqRrPmMhUBGiFC77wV7/S+IEZb6FlhN+TmE2l9CnixEDZOA==",
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
   "success": true,
-  "projectFilePath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\Users.UseCases.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problema al leer el archivo de caché C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.UseCases\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
     }
   ]
 }

@@ -8,24 +8,40 @@
     "net6.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\HOME\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\kevin\\.nuget\\packages\\": {}
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
       "projectName": "CampusVirtual.Domain",
       "projectPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
       "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
+      "projectName": "CampusVirtual.Domain",
+      "projectPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\CampusVirtual.Domain.csproj",
+      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\obj\\",
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -76,7 +92,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\HOME\\Desktop\\TRAINIG\\FinalProyect\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problema al leer el archivo de caché C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> beec77a5c4d044ef05f096ae5b93adb513b97f33
     }
   ]
 }
