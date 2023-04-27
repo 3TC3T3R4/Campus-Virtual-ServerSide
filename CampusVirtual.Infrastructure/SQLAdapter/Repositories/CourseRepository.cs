@@ -177,6 +177,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                 {
                     sqlQuery = $"UPDATE {_tableNameCourses} SET pathID = NULL, stateCourse = 1 WHERE CourseID = @CourseID";
                 }
+                if (courseToAssing.PathID != assingToPath.PathID)
+                {
+                    throw new Exception("Course is already assigned to another path.");
+                }
             }
 
             var result = await connection.ExecuteScalarAsync(sqlQuery, courseToAssing);
@@ -190,7 +194,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-            var activeCourses = await connection.QueryAsync<Courses>($"SELECT * FROM {_tableNameCourses} WHERE StateCourse = 1");
+            var activeCourses = await connection.QueryAsync<Courses>($"SELECT * FROM {_tableNameCourses}");
             connection.Close();
 
             return activeCourses.Count() == 0

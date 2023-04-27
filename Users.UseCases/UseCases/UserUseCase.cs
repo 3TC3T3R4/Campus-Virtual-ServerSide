@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Users.Domain.Commands;
+﻿using Users.Domain.Commands;
 using Users.Domain.Entities;
 using Users.UseCases.Gateway;
 using Users.UseCases.Gateway.Repositories;
@@ -33,6 +28,11 @@ namespace Users.UseCases.UseCases
         public async Task<User> GetUserById(string id)
         {
             return await _userRepository.GetUserById(id);
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _userRepository.GetUserByEmail(email);
         }
     }
 
