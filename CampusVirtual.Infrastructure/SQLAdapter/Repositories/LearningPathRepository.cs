@@ -6,7 +6,7 @@ using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
 using Microsoft.IdentityModel.Tokens;
-
+using System.Text.Json;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -104,13 +104,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             Guard.Against.Null(path.Description , nameof(path.Description), "Ingresa el campo por favor");
             Guard.Against.NullOrEmpty(path.Description, nameof(path.Description), "Ingresa por favor el id  no puede ser vacio o nulo");
 
-            Guard.Against.Null(path.Duration, nameof(path.Duration), "Ingresa el campo por favor");
-            Guard.Against.NullOrEmpty(path.Duration.ToString(), nameof(path.Duration), "Ingresa por favor el id  no puede ser vacio o nulo");
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string sqlQuery = $"UPDATE {_tableNameLearningPaths} " +
-                $"SET coachID = @coachID, title = @title, description = @description, " +
-                $"duration = @duration, statePath = @statePath WHERE pathID = '{idPath}'";
+                $"SET coachID = @coachID, title = @title, description = @description  WHERE pathID = '{idPath}'";
             var rows = await connection.ExecuteAsync(sqlQuery, path);
             return _mapper.Map<LearningPath>(path);
         }
@@ -126,7 +123,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET statePath = @delete WHERE  pathID = '{idPath}'";
             var result = await connection.ExecuteAsync(sqlQuery, param);
             connection.Close();
-            return "Path deleted";
+            return JsonSerializer.Serialize("Path deleted");
         }
 
         public async Task<LearningPath> GetLearningPathsByIdAsync(string idPath)
@@ -158,7 +155,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET duration = {numberConverted} WHERE pathID = '{idPath}' ";
             var result = await connection.ExecuteAsync(sqlQuery);
             connection.Close();
-            return "Duration Updated";
+            return JsonSerializer.Serialize("Duration Updated");
         }
     }
 }

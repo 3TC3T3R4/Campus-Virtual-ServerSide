@@ -4,6 +4,7 @@ using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
+using System.Text.Json;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -52,7 +53,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             await connection.ExecuteAsync(sqlQuery, newDelivery);
 
             connection.Close();
-            return "Delivery created";
+            return JsonSerializer.Serialize("Delivery created");
         }
 
 
@@ -67,7 +68,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             if (currentState == 2)
             {
                 connection.Close();
-                return "Delivery already deleted";
+                return  JsonSerializer.Serialize("Delivery already deleted");
             }
 
             // Delete delivery
@@ -75,7 +76,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             string updateQuery = $"UPDATE {tableName} SET stateDelivery = @stateDelivery WHERE deliveryID = {deliveryId} AND stateDelivery = 1";
             await connection.ExecuteAsync(updateQuery, deleteDelivery);
             connection.Close();
-            return "Delivery deleted";
+            return JsonSerializer.Serialize("Delivery deleted");
         }
 
 
@@ -138,7 +139,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                 $"UPDATE {tableName} SET rating = @rating, comment = @comment, ratedAt = @ratedAt WHERE deliveryID = {qualifyDelivery.deliveryID}";
             await connection.ExecuteAsync(sqlQuery, newDelivery);
             connection.Close();
-            return "Delivery qualified";
+            return JsonSerializer.Serialize("Delivery qualified");
         }
 
         public async Task<List<Delivery>> GetDeliveriesByPathId(string pathID)

@@ -13,14 +13,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-	options.AddPolicy(name: MyAllowSpecificOrigins,
-					  policy =>
-					  {
-						  policy.WithOrigins("http://localhost:4200", "https://personal-budget-manageme-7699c.web.app")
-							.SetIsOriginAllowedToAllowWildcardSubdomains()
-							.AllowAnyHeader()
-							.AllowAnyMethod();
-					  });
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:4200", 
+                              "https://campusvirtualsofka.web.app", 
+                              "https://campusvirtualsofka.firebaseapp.com")
+                            .SetIsOriginAllowedToAllowWildcardSubdomains()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                      });
 });
 
 // Add services to the container.
