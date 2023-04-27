@@ -9,9 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Users.API
 build_property.RootNamespace = Users.API
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Miguel-PC\Desktop\SofkaTraining\1. Reto Final Training\proyect\Users.API\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\Miguel-PC\Desktop\SofkaTraining\1. Reto Final Training\proyect\Users.API
+=======
+build_property.ProjectDir = C:\Users\kevin\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\Sofka\Training\Dev\Full Stack Grupal\b\Campus-Virtual-ServerSide\Users.API\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\kevin\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\Sofka\Training\Dev\Full Stack Grupal\b\Campus-Virtual-ServerSide\Users.API
+>>>>>>> 2b7ac101acdc92eb8907f282bfe797f31f6cd7f8
 build_property._RazorSourceGeneratorDebug = 
