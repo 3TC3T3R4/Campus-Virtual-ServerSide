@@ -2,6 +2,7 @@
 using AutoMapper;
 using CampusVirtual.Domain.Common;
 using CampusVirtual.Domain.Entities;
+using CampusVirtual.Domain.Entities.Wrappers.Registration;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
@@ -104,18 +105,19 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             return JsonSerializer.Serialize("The registration was not found.");
         }
 
-        public async Task<List<Registration>> GetAllRegistrationsAsync()
+        public async Task<List<RegistrationWithLearningPath>> GetAllRegistrationsAsync()
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-            var registrationsFound = (from reg in await connection.QueryAsync<Registration>
-                                     ($"SELECT * FROM {_tableNameRegistrations}")
-                                      where reg.StateRegistration == Enums.StateRegistration.Active
-                                      select reg)
-                                    .ToList();
-            connection.Close();
+            var query = $"SELECT * FROM Registrations re " +
+                        $"INNER JOIN LearningPaths lp ON lp.pathID = re.pathID " +
+                        $"WHERE stateRegistration = 1";
+
+            var registrationsFound = (from registrations in await connection.QueryAsync<RegistrationWithLearningPath>(query) 
+                                      select registrations).ToList();
+
             return registrationsFound.Count == 0
-                ? _mapper.Map<List<Registration>>(Guard.Against.NullOrEmpty(registrationsFound, nameof(registrationsFound),
+                ? _mapper.Map<List<RegistrationWithLearningPath>>(Guard.Against.NullOrEmpty(registrationsFound, nameof(registrationsFound),
                     $"There is no registrations available."))
                 : registrationsFound;
         }

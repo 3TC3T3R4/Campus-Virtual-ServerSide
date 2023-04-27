@@ -1,4 +1,5 @@
 ﻿using CampusVirtual.Domain.Entities;
+using CampusVirtual.Domain.Entities.Wrappers.Registration;
 using CampusVirtual.UseCases.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 
@@ -27,7 +28,7 @@ namespace CampusVirtual.UseCases.UseCases
             return await _registrationRepository.DeleteRegistrationAsync(registrationID);
         }
 
-        public async Task<List<Registration>> GetAllRegistrationsAsync()
+        public async Task<List<RegistrationWithLearningPath>> GetAllRegistrationsAsync()
         {
             return await _registrationRepository.GetAllRegistrationsAsync();
         }
