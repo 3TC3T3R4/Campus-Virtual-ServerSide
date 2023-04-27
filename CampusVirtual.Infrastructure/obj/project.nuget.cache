@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tX8oSBlxxaVnQ6s3dJM39gzKa8nKwSykc06BaRs73E4UB3Olcr23g0EzRBrzg9farr4UzEH9jLEHlaChwoxO3w==",
+  "dgSpecHash": "ovDTJXoi1WNhtOTfgZfF6DSu8s/5G5NR5JIaZFIWo+evTatdtLSPHBv4FCWmVCvqRBhzgz2x43qYpVH99Vkjdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\CampusVirtual.Infrastructure\\CampusVirtual.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\CampusVirtual.Infrastructure\\CampusVirtual.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",

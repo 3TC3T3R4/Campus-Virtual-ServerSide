@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OFNc1r7gTlmiEyrlxB3+9M0Ms5sGoLfYxJev9Q/GZygCDH7HJlnBcLMXhwmJ0bjYHv+D5Dcayd21dcNmlyo5pg==",
+  "dgSpecHash": "e96UeI8TnsOIXnzXCii52wBzA+6PzqBl6/dh0tR9afmp4N/71fcoHGYS7lXWGvMK1QhwuSUtYU8q38SgX0hlSQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\b\\Campus-Virtual-ServerSide\\Users.API\\Users.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
@@ -37,12 +37,5 @@
     "C:\\Users\\kevin\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\kevin\\OneDrive - UNIVERSIDAD DE CUNDINAMARCA\\Sofka\\Training\\Dev\\Full Stack Grupal\\Campus-Virtual-ServerSide\\Users.API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'logs[0].warningLevel', line 45, position 0."
-    }
-  ]
+  "logs": []
 }
