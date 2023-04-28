@@ -6,7 +6,7 @@ using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
 using Microsoft.IdentityModel.Tokens;
-
+using System.Text.Json;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -123,7 +123,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET statePath = @delete WHERE  pathID = '{idPath}'";
             var result = await connection.ExecuteAsync(sqlQuery, param);
             connection.Close();
-            return "Path deleted";
+            return JsonSerializer.Serialize("Path deleted");
         }
 
         public async Task<LearningPath> GetLearningPathsByIdAsync(string idPath)
@@ -155,7 +155,7 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             string sqlQuery = $"UPDATE {_tableNameLearningPaths} SET duration = {numberConverted} WHERE pathID = '{idPath}' ";
             var result = await connection.ExecuteAsync(sqlQuery);
             connection.Close();
-            return "Duration Updated";
+            return JsonSerializer.Serialize("Duration Updated");
         }
     }
 }

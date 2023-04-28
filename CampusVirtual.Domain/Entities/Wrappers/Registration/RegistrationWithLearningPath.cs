@@ -2,7 +2,7 @@
 
 namespace CampusVirtual.Domain.Entities.Wrappers.Registration
 {
-    public class MyRegistrationToDeliveriesInPath
+    public class RegistrationWithLearningPath
     {
         public int RegistrationID { get; set; }
         public string UidUser { get; set; }
@@ -10,7 +10,10 @@ namespace CampusVirtual.Domain.Entities.Wrappers.Registration
         public DateTime CreatedAt { get; set; }
         public decimal FinalRating { get; set; }
         public Enums.StateRegistration StateRegistration { get; set; }
-
-        public List<decimal> MyRatings { get; set; } = new();
+        public string CoachID { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public decimal Duration { get; set; }
+        public int StatePath { get; set; }
     }
 }
