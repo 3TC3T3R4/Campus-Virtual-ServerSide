@@ -7,15 +7,11 @@ namespace CampusVirtual.UseCases.Gateway
     {
         Task<List<LearningPath>> GetLearningPathsAsync();
         Task<LearningPath> CreateLearningPathAsync(LearningPath learningPath);
-
         Task<List<LearningPath>> GetLearningPathsByCoachAsync(string coachID);
-
+        Task<List<LearningPath>> GetLearningPathsByTraineeAsync(string traineeID);
         Task<LearningPath> UpdateLearningPathByIdAsync(string idPath, UpdateLearningPaths path);
         Task<string> DeleteLearningPathByIdAsync(string idPath);
-
-
         Task<LearningPath> GetLearningPathByIdAsync(string coachID);
-
         Task<string> UpdateLearningPathDurationAsync(string idPath, decimal totalDuration);
     }
 }

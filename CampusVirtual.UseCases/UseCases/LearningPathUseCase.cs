@@ -39,6 +39,11 @@ namespace CampusVirtual.UseCases.UseCases
             return await _learningPathRepository.GetLearningPathsByCoachAsync(coachID);
         }
 
+        public async Task<List<LearningPath>> GetLearningPathsByTraineeAsync(string traineeID)
+        {
+            return await _learningPathRepository.GetLearningPathsByTraineeAsync(traineeID);
+        }
+
         public async Task<LearningPath> UpdateLearningPathByIdAsync(string idPath, UpdateLearningPaths path)
         {
             return await _learningPathRepository.UpdateLearningPathByIdAsync(idPath, path);

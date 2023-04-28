@@ -157,5 +157,24 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             connection.Close();
             return JsonSerializer.Serialize("Duration Updated");
         }
+
+        public async Task<List<LearningPath>> GetLearningPathsByTraineeAsync(string traineeID)
+        {
+            Guard.Against.Null(traineeID, nameof(traineeID));
+            Guard.Against.NullOrEmpty(traineeID, nameof(traineeID));
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+            var sqlQuery = $"SELECT DISTINCT lp.* FROM Registrations reg " +
+                            $"INNER JOIN LearningPaths lp ON lp.pathID = reg.pathID " +
+                            $"WHERE reg.uidUser = '{traineeID}'";
+
+            var result = await connection.QueryAsync<LearningPath>(sqlQuery);
+            if (result.IsNullOrEmpty())
+            {
+                throw new Exception("No LearningPaths found");
+            }
+            connection.Close();
+            return result.ToList();
+        }
     }
 }

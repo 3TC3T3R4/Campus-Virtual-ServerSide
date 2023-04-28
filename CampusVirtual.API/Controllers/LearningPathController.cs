@@ -40,6 +40,12 @@ namespace CampusVirtual.API.Controllers
             return await _learningPathUseCase.GetLearningPathsByCoachAsync(id);
         }
 
+        [HttpGet("GetByTrainee")]
+        public async Task<List<LearningPath>> Get_LearningPaths_Trainee(string id)
+        {
+            return await _learningPathUseCase.GetLearningPathsByTraineeAsync(id);
+        }
+
         [HttpPut]
         public async Task<LearningPath> Update_Learning_By_Id(string id, [FromBody] UpdateLearningPaths command)
         {
