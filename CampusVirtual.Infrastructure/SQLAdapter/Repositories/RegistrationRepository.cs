@@ -2,9 +2,11 @@
 using AutoMapper;
 using CampusVirtual.Domain.Common;
 using CampusVirtual.Domain.Entities;
+using CampusVirtual.Domain.Entities.Wrappers.Registration;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
+using System.Text.Json;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -71,10 +73,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                                                 $"VALUES (@UidUser, @PathID, @CreatedAt, @FinalRating, @StateRegistration)",
                                                 registration);
                 connection.Close();
-                return "The registration was created successfully.";
+                return JsonSerializer.Serialize("The registration was created successfully.");
             }
             connection.Close();
-            return "The registration was no created";
+            return JsonSerializer.Serialize("The registration was no created.");
         }
 
         public async Task<string> DeleteRegistrationAsync(int registrationID)
@@ -97,24 +99,25 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
                                                     RegistrationID = registrationID
                                                 });
                 connection.Close();
-                return "The registration was deleted successfully.";
+                return JsonSerializer.Serialize("The registration was deleted successfully.");
             }
             connection.Close();
-            return "The registration was not found.";
+            return JsonSerializer.Serialize("The registration was not found.");
         }
 
-        public async Task<List<Registration>> GetAllRegistrationsAsync()
+        public async Task<List<RegistrationWithLearningPath>> GetAllRegistrationsAsync()
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-            var registrationsFound = (from reg in await connection.QueryAsync<Registration>
-                                     ($"SELECT * FROM {_tableNameRegistrations}")
-                                      where reg.StateRegistration == Enums.StateRegistration.Active
-                                      select reg)
-                                    .ToList();
-            connection.Close();
+            var query = $"SELECT * FROM Registrations re " +
+                        $"INNER JOIN LearningPaths lp ON lp.pathID = re.pathID " +
+                        $"WHERE stateRegistration = 1";
+
+            var registrationsFound = (from registrations in await connection.QueryAsync<RegistrationWithLearningPath>(query) 
+                                      select registrations).ToList();
+
             return registrationsFound.Count == 0
-                ? _mapper.Map<List<Registration>>(Guard.Against.NullOrEmpty(registrationsFound, nameof(registrationsFound),
+                ? _mapper.Map<List<RegistrationWithLearningPath>>(Guard.Against.NullOrEmpty(registrationsFound, nameof(registrationsFound),
                     $"There is no registrations available."))
                 : registrationsFound;
         }
@@ -156,13 +159,13 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
             var registrationFound = await GetRegistrationByUidUserAndPathIDAsync(uidUser, pathID);
             Guard.Against.Null(registrationFound, nameof(registrationFound), $"There is no a registration available.");
 
-            var query = $"SELECT d.rating " +
+            var query = $"SELECT DISTINCT d.rating " +
                         $"FROM Registrations re " +
                         $"INNER JOIN LearningPaths lp ON re.pathID = lp.pathID " +
                         $"INNER JOIN Courses c ON lp.pathID = c.pathID " +
                         $"INNER JOIN Contents ct ON ct.courseID = c.courseID " +
                         $"INNER JOIN Deliveries d ON ct.contentID = d.contentID " +
-                        $"WHERE re.uidUser = '{uidUser}' " +
+                        $"WHERE d.uidUser = '{uidUser}' " +
                         $"AND d.rating IS NOT NULL";
 
             var ratingsFound = (from rating in await connection.QueryAsync<decimal>(query) select rating).ToList();
