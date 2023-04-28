@@ -5,6 +5,7 @@ using CampusVirtual.Domain.Entities;
 using CampusVirtual.Infrastructure.SQLAdapter.Gateway;
 using CampusVirtual.UseCases.Gateway.Repositories;
 using Dapper;
+using System.Text.Json;
 
 namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 {
@@ -78,10 +79,10 @@ namespace CampusVirtual.Infrastructure.SQLAdapter.Repositories
 
             if (result == 0)
             {
-                return "Course was no deleted.";
+                return JsonSerializer.Serialize("Course was no deleted.");
             }          
 
-            return "Course deleted successfully.";
+            return JsonSerializer.Serialize("Course deleted successfully.");
            
         }
 
