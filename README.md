@@ -4,10 +4,10 @@ This project is about a virtual campus, the administrators, which in their case 
 ## Diagram and SQL
 
 ### ER Diagram
-https://drive.google.com/file/d/1UPm5okIwsrnK4QXNUBlZDkwOqu8yb1oq/view
+[Click here](https://drive.google.com/file/d/1UPm5okIwsrnK4QXNUBlZDkwOqu8yb1oq/view)
 
 ### SQL Script
-https://github.com/3TC3T3R4/Campus-Virtual-ServerSide/blob/develop/Utils/CampusVirtualScript.sql
+[Click here](https://github.com/3TC3T3R4/Campus-Virtual-ServerSide/blob/develop/Utils/CampusVirtualScript.sql)
 
 ## Contrats
 
